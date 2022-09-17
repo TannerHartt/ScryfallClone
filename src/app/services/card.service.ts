@@ -6,22 +6,22 @@ import { HttpClient } from "@angular/common/http";
 })
 export class CardService {
 
-  baseUrl: string = "https://api.scryfall.com";
-  dbUrl: string ='https://api.magicthegathering.io/v1/cards';
+  scryfallUrl: string = "https://api.scryfall.com";
+  mtgDbUrl: string ='https://api.magicthegathering.io/v1/cards';
 
   constructor(private http: HttpClient) { }
 
 
   getRandomCard() {
-    return this.http.get(`${this.baseUrl}/cards/random`);
+    return this.http.get(`${this.scryfallUrl}/cards/random`);
   }
 
   getAllCards() {
-    return this.http.get(`${this.baseUrl}/`);
+    return this.http.get(`${this.scryfallUrl}/`);
   }
 
   getAllCardsInDb() {
-    return this.http.get(`${this.dbUrl}`);
+    return this.http.get(`${this.mtgDbUrl}`);
   }
 
 }
