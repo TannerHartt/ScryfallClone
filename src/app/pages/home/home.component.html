@@ -19,20 +19,20 @@
 
       <p class="home-page-news">
         <a routerLink="/" class="home-page-item">
-          <span class="pill orange" *ngIf="isNew">New</span>
-          <i>Warhammer previews</i>
+          <span class="pill orange" *ngIf="!isNew">New</span>
+          <span>Warhammer previews</span>
         </a>
-        <a href="#" class="home-page-item">
+        <a routerLink="/" class="home-page-item">
           <span class="pill orange" *ngIf="isNew">New</span>
-          <i>Dominaria United full set preview</i>
+          <span>Dominaria United full set preview</span>
         </a>
-        <a href="#" class="home-page-item">
+        <a routerLink="/" class="home-page-item">
           <span class="pill orange" *ngIf="isNew">New</span>
-          <i>Dominaria United Commander preview</i>
+          <span>Dominaria United Commander preview</span>
         </a>
-        <a href="#" class="home-page-item">
+        <a routerLink="/" class="home-page-item">
           <span class="pill orange" *ngIf="isNew">New</span>
-          <i>Double Masters 2022 full preview</i>
+          <span>Double Masters 2022 full preview</span>
         </a>
       </p>
     </div>
