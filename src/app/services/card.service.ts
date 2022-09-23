@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import {Card} from "../models/card";
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,6 @@ import { HttpClient } from "@angular/common/http";
 export class CardService {
 
   scryfallUrl: string = "https://api.scryfall.com";
-  mtgDbUrl: string ='https://api.magicthegathering.io/v1/cards';
 
   constructor(private http: HttpClient) { }
 
@@ -16,12 +16,31 @@ export class CardService {
     return this.http.get(`${this.scryfallUrl}/cards/random`);
   }
 
-  getAllCards() {
-    return this.http.get(`${this.scryfallUrl}/`);
+  getTSS() {
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=tivit+seller+of+secrets`);
   }
 
-  getAllCardsInDb() {
-    return this.http.get(`${this.mtgDbUrl}`);
+  getKarn() {
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=karn+the+great+creator`);
   }
 
+  getBTM() {
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=behold+the+multiverse`);
+  }
+
+  getYUP() {
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=Yahenni+undying+partisan`);
+  }
+
+  getHF() {
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=hallar+the+firefletcher`);
+  }
+
+  getASR() {
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=alharu+solemn+ritualist`);
+  }
+
+  getNDE() {
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=nassari+dean+of+expression`);
+  }
 }
