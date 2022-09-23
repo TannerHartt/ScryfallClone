@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { RandomComponent } from './pages/random/random.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FooterComponent } from './constants/footer/footer.component';
+import { CollageComponent } from './components/collage/collage.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
     CardsComponent,
     HomeComponent,
     RandomComponent,
-    FooterComponent
+    FooterComponent,
+    CollageComponent
   ],
   imports: [
     BrowserModule,
