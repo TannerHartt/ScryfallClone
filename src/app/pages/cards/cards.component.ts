@@ -13,21 +13,6 @@ export class CardsComponent implements OnInit {
   constructor(private cardService: CardService) { }
 
   ngOnInit(): void {
-    this.getAllCards();
   }
-
-  getCardData() {
-    this.cardService.getRandomCard().subscribe(cardData => {
-      this.cards = cardData;
-    });
-  }
-
-  getAllCards() {
-    this.cardService.getAllCardsInDb().subscribe(card => {
-      this.allCards = card;
-      console.log(card);
-    });
-  }
-
 
 }
