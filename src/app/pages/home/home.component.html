@@ -18,7 +18,7 @@
       </p>
 
       <p class="home-page-news">
-        <a href="#" class="home-page-item">
+        <a routerLink="/" class="home-page-item">
           <span class="pill orange" *ngIf="isNew">New</span>
           <i>Warhammer previews</i>
         </a>
@@ -36,12 +36,35 @@
         </a>
       </p>
     </div>
-
     <div class="home-page-cards">
-      <a href="#">
-        <img src="" alt="">
-      </a>
+      <div class="cards">
+        <a >
+          <img [src]="cardOne?.image_uris?.normal" [alt]="cardOne?.name" class="card ncc" [title]="cardOne?.name">
+        </a>
+        <a >
+          <img [src]="cardTwo?.image_uris?.normal" [alt]="cardTwo?.name" class="card war" [title]="cardTwo?.name">
+        </a>
+        <a >
+          <img [src]="cardThree?.image_uris?.normal" [alt]="cardThree?.name" class="card khm" [title]="cardThree?.name">
+        </a>
+        <a >
+          <img [src]="cardFour?.image_uris?.normal" [alt]="cardFour?.name" class="card dom" [title]="cardFour?.name">
+        </a>
+        <a >
+          <img [src]="cardFive?.image_uris?.normal" [alt]="cardFive?.name" class="card cmr" [title]="cardFive?.name">
+        </a>
+        <a >
+          <img [src]="cardSix?.image_uris?.normal" [alt]="cardSix?.name" class="card stx" [title]="cardSix?.name">
+        </a>
+        <a >
+          <img [src]="cardSix?.image_uris?.normal" [alt]="cardSeven?.name" class="card aer" [title]="cardSeven?.name">
+        </a>
+      </div>
     </div>
 
   </div>
+
+
+
+
 </div>

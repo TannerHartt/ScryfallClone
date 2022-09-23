@@ -1,5 +1,4 @@
 .search-bar {
-  position: relative;
   display: block;
   margin: auto;
   padding: 12px 14px 12px 62px;
@@ -26,7 +25,7 @@
   top: 50%;
   left: 50%;
   -ms-transform: translateY(-50%) translateX(-50%);
-  transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-70%) translateX(-50%);
   width: 60%;
 }
 
@@ -66,7 +65,7 @@ h1 {
   -webkit-box-direction: normal;
   -webkit-flex-flow: column nowrap;
   flex-flow: column nowrap;
-  height: auto;
+  height: 100vh;
   min-height: 600px;
   background-position: bottom -140px center;
   -webkit-background-size: 665px auto;
@@ -118,23 +117,6 @@ h1 {
   background-color: #F64800;
 }
 
-
-.card {
-  -webkit-border-radius: 4.75% / 3.5%;
-  border-radius: 4.75% / 3.5%;
-  background-image: -webkit-repeating-linear-gradient(145deg, #DDD, #DDD 5px, #CCC 5px, #CCC 10px);
-  background-image: -o-repeating-linear-gradient(145deg, #DDD, #DDD 5px, #CCC 5px, #CCC 10px);
-  background-image: repeating-linear-gradient(-55deg, #DDD, #DDD 5px, #CCC 5px, #CCC 10px);
-  background-color: #000;
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  overflow: hidden;
-  text-align: center;
-  height: 234px;
-  width: 168px;
-}
-
 .home-page-news {
   margin: 12px 0 0;
   display: block;
@@ -154,5 +136,61 @@ h1 {
 }
 
 .home-page-cards {
+  height: 160px;
+  position: absolute;
+  bottom: 0;
+  /*overflow: hidden;*/
+  left: 50%;
+  transform: translateX(-50%);
+}
 
+.cards {
+  height: 100%;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 730px;
+}
+
+.card {
+  -webkit-border-radius: 4.75% / 3.5%;
+  border-radius: 4.75% / 3.5%;
+  background-image: -webkit-repeating-linear-gradient(145deg, #DDD, #DDD 5px, #CCC 5px, #CCC 10px);
+  background-image: -o-repeating-linear-gradient(145deg, #DDD, #DDD 5px, #CCC 5px, #CCC 10px);
+  background-image: repeating-linear-gradient(-55deg, #DDD, #DDD 5px, #CCC 5px, #CCC 10px);
+  background-color: #000;
+  display: inline;
+  height: 234px;
+  width: 168px;
+  cursor: pointer;
+  margin: 0 3px;
+}
+
+.ncc {
+  transform: translateY(7%);
+}
+
+.war {
+  transform: translateY(2%);
+}
+
+.khm {
+  transform: translateY(5%);
+}
+
+.dom {
+  transform: translateY(14%) translateX(-22%);
+}
+
+.cmr {
+  transform: translateX(-86%) translateY(-80%);
+}
+
+.stx {
+  transform: translateY(-84%) translateX(-88%);
+}
+
+.aer {
+  transform: translateX(-80%) translateY(-60%);
 }
