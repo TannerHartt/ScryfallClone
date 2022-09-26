@@ -41,6 +41,6 @@ export class CardService {
   }
 
   getNDE() {
-    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=nassari+dean+of+expression`);
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=captain+vargus+wrath`);
   }
 }
