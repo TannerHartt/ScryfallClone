@@ -7,7 +7,7 @@ import { CardsComponent } from './pages/cards/cards.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RandomComponent } from './pages/random/random.component';
 import { Routes, RouterModule } from '@angular/router';
-import { FooterComponent } from './constants/footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { CollageComponent } from './components/collage/collage.component';
 
 const routes: Routes = [
