@@ -44,5 +44,6 @@ ul {list-style-type: none;}
 p {margin-top: 10px;}
 hr {opacity: .5;margin-bottom: 7px;}
 li {margin-bottom: 3px;}
+li:hover { cursor: pointer; text-decoration: underline}
 
 
