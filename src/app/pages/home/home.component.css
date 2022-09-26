@@ -12,6 +12,16 @@
   border-radius: 2px;
   -webkit-box-shadow: 0 0 2px rgb(0 0 0 / 50%);
 }
+
+.logo {
+  position: absolute;
+  height: 47px;
+  width: 50px;
+  left: 6.3rem;
+  top: 5.5rem;
+  cursor: pointer;
+  opacity: .5;
+}
 .search-bar:focus {color: #FFF;border-color: rgba(255,255,255,0.45);background-color: #2d283d;outline: none;}
 .center-items {position: absolute;top: 50%;left: 50%;-ms-transform: translateY(-50%) translateX(-50%);transform: translateY(-70%) translateX(-50%);width: 60%;}
 .home-page {position: relative;text-align: center;padding: 0 5%;}
@@ -38,7 +48,7 @@ h1 {display: block;font-size: 2em;margin-block-start: 0.67em;margin-block-end: 0
   width: fit-content;
   cursor: pointer;
   white-space: nowrap;
-  padding: 8px 10px;
+  padding: 4px 10px;
   font-size: 14px;
   line-height: 18px;
   text-decoration: none;
@@ -83,7 +93,7 @@ h1 {display: block;font-size: 2em;margin-block-start: 0.67em;margin-block-end: 0
   color: #FFFFFFCC;
   text-decoration: none;
   font-size: 14px;
-}
+  }
 
 .home-page-item:hover {color: #ffffff;}
 

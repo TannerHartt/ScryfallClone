@@ -7,14 +7,15 @@
         <strong>Magic:&nbsp;The&nbsp;Gathering</strong>
         card&nbsp;search</h1>
       <form method="get" class="search-form">
+        <img routerLink="/" src="assets/images/logo.png" alt="..." class="logo">
         <input type="text" class="search-bar">
       </form>
 
       <p class="home-page-links">
-        <a href="" class="btn-links">Advanced Search</a>
-        <a href="" class="btn-links">Syntax Guide</a>
-        <a href="" class="btn-links">All Sets</a>
-        <a href="" class="btn-links">Random Card</a>
+        <a routerLink="/" class="btn-links">Advanced Search</a>
+        <a routerLink="/" class="btn-links">Syntax Guide</a>
+        <a routerLink="/" class="btn-links">All Sets</a>
+        <a routerLink="/random" class="btn-links">Random Card</a>
       </p>
 
       <p class="home-page-news">
@@ -57,7 +58,7 @@
           <img [src]="cardSix?.image_uris?.normal" [alt]="cardSix?.name" class="card stx" [title]="cardSix?.name">
         </a>
         <a >
-          <img [src]="cardSix?.image_uris?.normal" [alt]="cardSeven?.name" class="card aer" [title]="cardSeven?.name">
+          <img [src]="cardSeven?.image_uris?.normal" [alt]="cardSeven?.name" class="card aer" [title]="cardSeven?.name">
         </a>
       </div>
     </div>
