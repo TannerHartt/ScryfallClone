@@ -8,12 +8,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { RandomComponent } from './pages/random/random.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
-import { CollageComponent } from './components/collage/collage.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'random', component: RandomComponent },
-  { path: 'all', component: CardsComponent },
+
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

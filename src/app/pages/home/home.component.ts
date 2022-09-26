@@ -9,8 +9,8 @@ import {CardService} from "../../services/card.service";
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  isNew: boolean = false;
   collageCards: Card[] = [];
+  isNew: boolean = false;
   cardOne: Card | null = null;
   cardTwo: Card | null = null;
   cardThree: Card | null = null;
