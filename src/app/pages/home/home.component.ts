@@ -9,7 +9,6 @@ import {CardService} from "../../services/card.service";
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  collageCards: Card[] = [];
   isNew: boolean = false;
   cardOne: Card | null = null;
   cardTwo: Card | null = null;
@@ -18,6 +17,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   cardFive: Card | null = null;
   cardSix: Card | null = null;
   cardSeven: Card | null = null;
+  searchValue: string | null = '';
+  searchCard: Card | null = null;
 
   constructor(private cardService: CardService) { }
 
@@ -37,6 +38,26 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.cardService.getHF().subscribe((card) => this.cardFive = card);
     this.cardService.getASR().subscribe((card) => this.cardSix = card);
     this.cardService.getNDE().subscribe((card) => this.cardSeven = card);
+  }
+
+  search() {
+    if(this.searchValue) {
+      if (this.searchValue?.includes(' ')) {
+        this.searchValue = this.searchValue?.replace(' ', "+");
+        this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
+          this.searchCard = card;
+          console.log(card);
+        });
+        this.searchValue = null;
+
+      } else {
+        this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
+          this.searchCard = card;
+          console.log(card);
+        });
+        this.searchValue = null;
+      }
+    }
   }
 
 

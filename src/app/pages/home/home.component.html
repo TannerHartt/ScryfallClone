@@ -6,9 +6,9 @@
         is a powerful
         <strong>Magic:&nbsp;The&nbsp;Gathering</strong>
         card&nbsp;search</h1>
-      <form method="get" class="search-form">
+      <form class="search-form">
         <img routerLink="/" src="assets/images/logo.png" alt="..." class="logo">
-        <input type="text" class="search-bar">
+        <input type="text" class="search-bar" [(ngModel)]="searchValue" (change)="search()" [ngModelOptions]="{standalone: true}">
       </form>
 
       <p class="home-page-links">
