@@ -8,10 +8,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { RandomComponent } from './pages/random/random.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { NavComponent } from './components/nav/nav.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'random', component: RandomComponent },
+  { path: 'card', component: CardsComponent },
 
   { path: '**', component: HomeComponent }
 ];
@@ -23,13 +26,14 @@ const routes: Routes = [
     HomeComponent,
     RandomComponent,
     FooterComponent,
-    CollageComponent
+    NavComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes),
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        RouterModule.forRoot(routes),
+        FormsModule,
+    ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
 })
