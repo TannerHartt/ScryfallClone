@@ -16,6 +16,10 @@ export class CardService {
     return this.http.get(`${this.scryfallUrl}/cards/random`);
   }
 
+  getSearchValue(searchValue: string) {
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?fuzzy=${searchValue}`);
+  }
+
   getTSS() {
     return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=tivit+seller+of+secrets`);
   }
