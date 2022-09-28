@@ -1,0 +1,142 @@
+.header {
+  background-color: #2B253A;
+  padding: 0 2.5%;
+  width: 100%;
+}
+
+.header-control-row {
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  max-width: 1000px;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  height: 52px;
+}
+.header-logo {
+  flex: 0 0 28px;
+  height: 52px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+.header-search {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  flex: 1 1;
+  margin: 0 0 0 4px;
+}
+.header-search-field {
+  height: 52px;
+  line-height: 22px;
+  padding: 15px 3px 15px 3px;
+  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #FDFDFD;
+  font-size: 16px;
+  flex: 1 1;
+  background-color: transparent;
+  border: none;
+}
+.vh {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+.header-links {
+  display: none;
+}
+
+.header-link:hover {
+  text-decoration: underline;
+  color: #FFFFFF;
+}
+
+.header-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 52px;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(255,255,255,0.75);
+  padding: 0 7px;
+  cursor: pointer;
+}
+
+.header-link-divider {
+  height: 20px;
+  width: 1px;
+  border-right: 1px solid rgba(255,255,255,0.4);
+  margin: 0 6px 0 0;
+}
+
+.header-link svg {
+  width: 16px;
+  height: 16px;
+  margin: 0 7px 0 0;
+}
+
+.double-pad-left {
+  padding-left: 14px
+}
+.double-pad-right {
+  padding-right: 14px
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+.header-link path, .header-link g {
+  fill: rgba(255,255,255,0.75);
+}
+
+.icon {
+  color: rgba(255,255,255,0.75);
+}
+
+@media screen and (min-width: 420px) {
+  .header-logo {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 34px;
+    -ms-flex: 0 0 34px;
+    flex: 0 0 34px;
+  }
+  .header-search-field {
+    padding-left: 14px;
+    background-image: url(https://assets.scryfall.com/assets/icons/search-field-959edca….svg);
+    -webkit-background-size: 16px auto;
+    background-size: 16px auto;
+    background-position: 6px 18px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .header-links {
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 52px;
+  }
+}
