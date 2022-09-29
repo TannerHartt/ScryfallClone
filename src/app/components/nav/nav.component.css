@@ -33,7 +33,7 @@
   flex: 1 1;
   margin: 0 0 0 4px;
 }
-.header-search-field {
+#header-search-field {
   height: 52px;
   line-height: 22px;
   padding: 15px 3px 15px 3px;
@@ -44,24 +44,11 @@
   background-color: transparent;
   border: none;
 }
-.vh {
-  border: 0 !important;
-  clip: rect(0 0 0 0) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-}
-.header-links {
-  display: none;
-}
+#header-search-field:focus {outline: none;}
 
-.header-link:hover {
-  text-decoration: underline;
-  color: #FFFFFF;
-}
+.header-links {display: none;}
+
+.header-link:hover {text-decoration: underline;color: #FFFFFF;}
 
 .header-link {
   display: flex;
