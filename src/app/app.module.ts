@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { NavComponent } from './components/nav/nav.component';
 import { CardComponent } from './pages/card/card.component';
+import { LanguagePipe } from './services/language.pipe';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
     FooterComponent,
     NavComponent,
     CardComponent,
+    LanguagePipe,
   ],
     imports: [
         BrowserModule,
