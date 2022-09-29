@@ -58,6 +58,8 @@ export interface Card {
   finishes: string[];
   oversized: boolean;
   promo: boolean;
+  power: string;
+  toughness: string;
   reprint: boolean;
   variation: boolean;
   set_id: string;
