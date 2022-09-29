@@ -13,7 +13,12 @@ export class CardService {
 
 
   getRandomCard() {
-    return this.http.get(`${this.scryfallUrl}/cards/random`);
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/random`);
+  }
+
+  getPR() {
+    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=Phyrexian+Reaper`);
+
   }
 
   getSearchValue(searchValue: string) {
