@@ -10,6 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { NavComponent } from './components/nav/nav.component';
+import { CardComponent } from './pages/card/card.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
     RandomComponent,
     FooterComponent,
     NavComponent,
+    CardComponent,
   ],
     imports: [
         BrowserModule,
