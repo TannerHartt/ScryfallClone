@@ -1,0 +1,174 @@
+<div class="card-profile">
+  <div class="inner-flex">
+    <div class="card-image">
+      <div class="card-img-front">
+        <img [src]="card?.image_uris?.large" [alt]="card?.name" class="card border-black">
+      </div>
+    </div>
+
+    <div class="card-actions">
+      <button name="button" type="button" class="button-n vh deckbuilder-card-add-button" title="Add to saved cards" data-card-id="ccdd498b-1081-43fe-8193-518337a5a3ea">
+        <svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M320 64h-16V48c0-26.47-21.53-48-48-48h-64c-26.47 0-48 21.53-48 48v16h-16C57.31 64 0 121.31 0 192v256c0 35.35 28.65 64 64 64h320c35.35 0 64-28.65 64-64V192c0-70.69-57.31-128-128-128zM176 48c0-8.83 7.19-16 16-16h64c8.81 0 16 7.17 16 16v16h-96V48zm160 432H112v-96h224v96zm0-128H112v-32c0-17.67 14.33-32 32-32h160c17.67 0 32 14.33 32 32v32zm80 96c0 17.64-14.36 32-32 32h-16V320c0-35.29-28.71-64-64-64H144c-35.29 0-64 28.71-64 64v160H64c-17.64 0-32-14.36-32-32V192c0-52.94 43.06-96 96-96h192c52.94 0 96 43.06 96 96v256zM312 160H136c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8h176c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8z"></path></svg>
+
+        <b>Add to Deck</b>
+      </button>
+
+    </div>
+
+    <div class="card-text ">
+      <h1 class="card-text-title" lang="en">
+          <span class="card-text-card-name">
+              {{ card?.name }}
+          </span>
+        <span class="card-text-mana-cost"><abbr class="card-symbol card-symbol-4" title="four generic mana">4</abbr><abbr class="card-symbol card-symbol-B" title="one black mana">B</abbr></span>
+      </h1>        <p class="card-text-type-line" lang="en">
+      {{ card?.type_line }}
+    </p>          <div class="card-text-box" lang="en">
+      <div class="card-text-oracle">
+        <p>{{ card?.oracle_text }}</p>
+      </div>
+      <div class="card-text-flavor">
+        <p>{{ card?.flavor_text }}</p>
+      </div>
+    </div>
+    <div class="card-text-stats">
+      {{ card?.power }}/{{ card?.toughness }}
+    </div>
+      <p class="card-text-artist">
+        Illustrated by
+        <a href="/search?q=a%3A%E2%80%9CSam+Wood%E2%80%9D&amp;unique=art">{{ card?.artist }}</a>
+
+      </p>
+      <dl class="card-legality">
+        <div class="card-legality-row">
+          <div class="card-legality-item">
+            <dt>Standard</dt>
+            <dd class="not-legal">{{ card?.legalities?.standard }}</dd>
+          </div>
+          <div class="card-legality-item">
+            <dt>Alchemy</dt>
+            <dd class="not-legal">{{ card?.legalities?.alchemy }}</dd>
+          </div>
+        </div>
+        <div class="card-legality-row">
+          <div class="card-legality-item">
+            <dt>Pioneer</dt>
+            <dd class="not-legal">{{ card?.legalities?.pioneer }}</dd>
+          </div>
+          <div class="card-legality-item">
+            <dt>Explorer</dt>
+            <dd class="not-legal">{{ card?.legalities?.explorer }}</dd>
+          </div>
+        </div>
+        <div class="card-legality-row">
+          <div class="card-legality-item">
+            <dt>Modern</dt>
+            <dd class="not-legal">{{ card?.legalities?.modern }}</dd>
+          </div>
+          <div class="card-legality-item">
+            <dt>Brawl</dt>
+            <dd class="not-legal">{{ card?.legalities?.brawl }}</dd>
+          </div>
+        </div>
+        <div class="card-legality-row">
+          <div class="card-legality-item">
+            <dt>Legacy</dt>
+            <dd class="legal">{{ card?.legalities?.legacy }}</dd>
+          </div>
+          <div class="card-legality-item">
+            <dt>Historic</dt>
+            <dd class="not-legal">{{ card?.legalities?.historic }}</dd>
+          </div>
+        </div>
+        <div class="card-legality-row">
+          <div class="card-legality-item">
+            <dt>Vintage</dt>
+            <dd class="legal">{{ card?.legalities?.vintage }}</dd>
+          </div>
+          <div class="card-legality-item">
+            <dt>Pauper</dt>
+            <dd class="legal">{{ card?.legalities?.pauper }}</dd>
+          </div>
+        </div>
+        <div class="card-legality-row">
+          <div class="card-legality-item">
+            <dt>Commander</dt>
+            <dd class="legal">{{ card?.legalities?.commander }}</dd>
+          </div>
+          <div class="card-legality-item">
+            <dt>Penny</dt>
+            <dd class="not-legal">{{ card?.legalities?.penny }}</dd>
+          </div>
+        </div>
+      </dl>
+    </div>
+
+    <div class="prints">
+
+      <div class="prints-current">
+        <a class="prints-current-set" href="https://scryfall.com/sets/inv">
+          <svg class="prints-current-set-symbol" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 1024"><path d="M376.202 295.171h-2.488c-19.203-1.246-32.536-16.947-32.536-48.241 0-32.621 33.78-77.363 33.78-77.363s33.896 44.742 33.896 77.363c0 31.293-13.449 46.996-32.652 48.241zm103.044-54.342c-2.487-24.149-3.615-48.328-14.575-82.106-10.846-33.896-45.203-73.777-88.468-73.777-43.498 0-77.392 39.881-88.238 73.777-10.844 33.778-12.088 57.957-14.461 82.106-2.487 24.177-16.831 131.734 102.815 131.734 119.644 0 105.3-107.558 102.927-131.734zm29.354-79.966c7.231 26.895 9.487 48.587 11.308 67.791l.898 9.803c2.256 21.373 9.052 86.328-32.536 132.516-20.678 22.934-49.251 36.381-84.622 41.009v72.417c258.927 0 323.796 112.761 323.796 112.761 60.995-109.812-3.065-274.632-73.226-344.793-70.248-70.161-145.616-91.505-145.616-91.505zm141.454 430.196C518.782 624.607 403.765 981.72 403.765 981.72V525.525c180.639 0 246.289 65.534 246.289 65.534zM98.534 252.368C28.257 322.529-35.803 487.349 25.192 597.161c0 0 64.869-112.761 323.912-112.761v-72.417c-35.369-4.628-64.06-18.075-84.738-41.009-41.588-46.188-34.676-111.143-32.536-132.516l1.012-9.803c1.707-19.203 4.077-40.895 11.308-67.791 0 0-75.484 21.344-145.616 91.505zm250.338 273.157V981.72S233.855 624.607 102.699 591.059c0 0 65.65-65.534 246.173-65.534z"></path></svg>
+          <span class="prints-current-set-name">
+        {{ card?.set_name }} ({{ card?.set | uppercase }})
+      </span>
+          <span class="prints-current-set-details">
+        #{{ card?.collector_number }} · {{ card?.rarity | titlecase }} · {{ card?.lang | uppercase }}
+      </span>
+        </a>  </div>
+
+      <div class="print-langs">
+        <a title="Phyrexian Reaper" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/c/c/ccdd498b-1081-43fe-8193-518337a5a3ea.jpg?1562936179" data-card-id="ccdd498b-1081-43fe-8193-518337a5a3ea" href="https://scryfall.com/card/inv/117/phyrexian-reaper" class="print-langs-item current">en</a>
+        <a title="Segador Phyrexiano" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/5/a/5a5e3609-8aa4-4a18-95c3-e73720430602.jpg?1562913348" data-card-id="5a5e3609-8aa4-4a18-95c3-e73720430602" href="https://scryfall.com/card/inv/117/es/segador-phyrexiano" class="print-langs-item">es</a>
+        <a title="Faucheur phyrexian" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/a/7/a7e21361-5d1e-4263-84cf-3d1db2faff5d.jpg?1562928884" data-card-id="a7e21361-5d1e-4263-84cf-3d1db2faff5d" href="https://scryfall.com/card/inv/117/fr/faucheur-phyrexian" class="print-langs-item">fr</a>
+        <a title="Phyrexianischer Schnitter" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/2/b/2bf78c4f-fc0a-47a2-a968-55e1d87a5759.jpg?1562903973" data-card-id="2bf78c4f-fc0a-47a2-a968-55e1d87a5759" href="https://scryfall.com/card/inv/117/de/phyrexianischer-schnitter" class="print-langs-item">de</a>
+        <a title="Mietitore di Phyrexia" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/7/2/721ace10-1778-44a4-86ca-f92eb6e1a25d.jpg?1562917796" data-card-id="721ace10-1778-44a4-86ca-f92eb6e1a25d" href="https://scryfall.com/card/inv/117/it/mietitore-di-phyrexia" class="print-langs-item">it</a>
+        <a title="Ceifador Phyrexiano" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/a/2/a25b2a24-4c27-4a89-bb96-6f9e7d5d720e.jpg?1562927796" data-card-id="a25b2a24-4c27-4a89-bb96-6f9e7d5d720e" href="https://scryfall.com/card/inv/117/pt/ceifador-phyrexiano" class="print-langs-item">pt</a>
+        <a title="ファイレクシアの死神" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/a/f/af1ae567-4738-4e84-abe6-de02142f560b.jpg?1562930236" data-card-id="af1ae567-4738-4e84-abe6-de02142f560b" href="https://scryfall.com/card/inv/117/ja/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AC%E3%82%AF%E3%82%B7%E3%82%A2%E3%81%AE%E6%AD%BB%E7%A5%9E" class="print-langs-item">ja</a>
+        <a title="Phyrexian Reaper" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/b/5/b506f425-c3f8-4018-a3f7-23ee642432f8.jpg?1598305264" data-card-id="b506f425-c3f8-4018-a3f7-23ee642432f8" href="https://scryfall.com/card/inv/117/zhs/phyrexian-reaper" class="print-langs-item">汉语</a>
+        <a title="Phyrexian Reaper" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/3/5/352da4fa-f337-45b1-996b-d4e00a1926a8.jpg?1598327360" data-card-id="352da4fa-f337-45b1-996b-d4e00a1926a8" href="https://scryfall.com/card/inv/117/zht/phyrexian-reaper" class="print-langs-item">漢語</a>
+        <a title="Show versions in all languages" class="print-langs-item" href="https://scryfall.com/search?q=%21%E2%80%9CPhyrexian+Reaper%E2%80%9D+set%3Ainv+lang%3Aany&amp;unique=prints">⋮</a>
+      </div>
+
+
+      <table class="prints-table">
+        <thead>
+        <tr>
+          <th>
+            <a href="/search?as=grid&amp;order=released&amp;q=%21%22Phyrexian+Reaper%22+include%3Aextras&amp;unique=prints">Prints</a>
+          </th>
+          <th><span>USD</span></th>
+          <th><span>EUR</span></th>
+          <th><span>TIX</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="current">
+          <td>
+            <a data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/c/c/ccdd498b-1081-43fe-8193-518337a5a3ea.jpg?1562936179" data-card-id="ccdd498b-1081-43fe-8193-518337a5a3ea" href="/card/inv/117/phyrexian-reaper"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="rarity-common"><path d="M12 4.435c0 .106-.063.221-.188.346l-2.618 2.553.62 3.606.007.144c0 .101-.025.186-.076.256-.05.07-.124.105-.22.105-.091 0-.188-.029-.288-.087l-3.238-1.702-3.238 1.702c-.106.058-.202.087-.288.087-.101 0-.177-.035-.227-.105-.05-.07-.076-.155-.076-.256l.014-.144.62-3.606-2.625-2.553c-.12-.13-.18-.245-.18-.346 0-.178.135-.288.404-.332l3.62-.526 1.623-3.281c.091-.197.209-.296.353-.296s.262.099.353.296l1.623 3.281 3.62.526c.269.043.404.154.404.332z" fill="red"></path></svg>
+
+              Invasion
+            </a>          </td>
+          <td>
+            <a title="Nonfoil: $0.10, Foil: $1.29" class="currency-usd" href="https://www.tcgplayer.com/product/7585?page=1&amp;utm_campaign=affiliate&amp;utm_medium=print-sidebar&amp;utm_source=scryfall">$0.10</a>
+          </td>
+          <td>
+            <a class="currency-eur" rel="nofollow" href="https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&amp;searchString=Phyrexian+Reaper&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=scryfall">
+              €0.02
+            </a>          </td>
+          <td>
+            <a class="currency-tix" rel="nofollow" href="https://www.cardhoarder.com/cards/14681?affiliate_id=scryfall&amp;ref=card-profile&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=scryfall">
+              0.11
+            </a>          </td>
+        </tr>    </tbody>
+      </table>
+
+
+
+
+      <div class="prints-info-section">
+
+      </div>
+
+    </div>
+  </div>
+</div>
