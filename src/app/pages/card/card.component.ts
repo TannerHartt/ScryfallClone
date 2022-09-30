@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CardService} from "../../services/card.service";
 import {Card} from "../../models/card";
 
@@ -12,6 +12,7 @@ export class CardComponent implements OnInit {
   constructor(private cardService: CardService) { }
 
   card: Card | null = null;
+  @Input() searchValue: Card | null = null;
 
   ngOnInit(): void {
     this.getCard();

@@ -23,21 +23,21 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private cardService: CardService) { }
 
   ngOnInit(): void {
-    this.getCollageCards();
+    this.getCollageCards().then();
   }
 
   ngOnDestroy() {
 
   }
 
-  getCollageCards() {
-    this.cardService.getTSS().subscribe((card) => this.cardOne = card);
-    this.cardService.getKarn().subscribe((card) => this.cardTwo = card);
-    this.cardService.getBTM().subscribe((card) => this.cardThree = card);
-    this.cardService.getYUP().subscribe((card) => this.cardFour = card);
-    this.cardService.getHF().subscribe((card) => this.cardFive = card);
-    this.cardService.getASR().subscribe((card) => this.cardSix = card);
-    this.cardService.getNDE().subscribe((card) => this.cardSeven = card);
+  async getCollageCards() {
+    await this.cardService.getTSS().subscribe((card) => this.cardOne = card);
+    await this.cardService.getKarn().subscribe((card) => this.cardTwo = card);
+    await this.cardService.getBTM().subscribe((card) => this.cardThree = card);
+    await this.cardService.getYUP().subscribe((card) => this.cardFour = card);
+    await this.cardService.getHF().subscribe((card) => this.cardFive = card);
+    await this.cardService.getASR().subscribe((card) => this.cardSix = card);
+    await this.cardService.getNDE().subscribe((card) => this.cardSeven = card);
   }
 
   search() {
