@@ -1,7 +1,6 @@
 .card-profile .inner-flex {
   position: relative;
 }
-
 .card-profile {
   padding: 15px 2.5%;
   background-color: #F5F6FA;
@@ -79,7 +78,6 @@
   height: 28px;
   font-size: 14px;
   line-height: 18px;
-  font-weight: bold !important;
   text-decoration: none !important;
   color: #551a8b;
   background-color: #F9F7F5;
@@ -89,6 +87,7 @@
   transition: color, border-color, background-color, fill;
   transition-duration: 50ms;
   transition-timing-function: linear;
+  font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 .card-text {
   display: block;
@@ -197,9 +196,7 @@
   justify-content: space-between;
   padding: 0 10px 0 10px;
 }
-.card-legality-item:nth-child(1) {
-  width: 51%;
-}
+.card-legality-item:nth-child(1) {width: 51%;}
 .card-legality-item {
   display: flex;
   flex-flow: row nowrap;
@@ -324,6 +321,7 @@ table { border-collapse: collapse;border-spacing: 0; }
   text-align: right;
   min-width: 36px;
 }
+
 .prints-table tbody tr.current, .prints-table tbody tr:hover {
   background-color: rgba(0,0,0,0.04);
 }
@@ -340,6 +338,9 @@ td a {
   text-decoration: none;
   color: #343242;
 }
+th, th span, th a {
+  text-decoration: none;
+}
 .prints-info-section h2 {
   font-size: 14px;
   font-weight: bold;
@@ -351,6 +352,7 @@ td a {
 }
 .toolbox {
   padding: 25px 2.5%;
+  background-color: #F5F6F7;
 }
 .toolbox .inner-flex {
   flex-flow: column nowrap;
@@ -360,6 +362,7 @@ td a {
   order: 2;
   width: 100%;
   max-width: 280px;
+  -webkit-box-ordinal-group: 3;
 }
 .toolbox-column h6 {
   font-size: 14px;
@@ -370,6 +373,11 @@ td a {
 .toolbox-links {
   font-size: 14px;
 }
+#stores.toolbox-column {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+}
 .button-n.tcgplayer {
   color: #006885;
   border-color: #006885;
@@ -377,24 +385,40 @@ td a {
 .toolbox-links .button-n {
   margin: 0 0 4px 0;
   width: 100%;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   max-width: 280px;
 }
-.button-n, .select-n {
-  text-decoration: none !important;
-  color: #551a8b;
-  background-color: #F9F7F5;
-  border: 1px solid rgba(85,26,139,0.5);
-  border-radius: 3px;
-  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 6%);
-  transition: color, border-color, background-color, fill;
-  transition-duration: 50ms;
-  transition-timing-function: linear;
+.button-n svg:first-child, .select-n svg:first-child {
+  margin: 0 6px 0 -1px;
 }
-
+.button-n svg, .select-n svg {
+  width: 14px;
+  height: 14px;
+}
+b, i {
+  font-style: inherit;
+  font-weight: inherit;
+}
+.currency-usd {
+  color: #006885 !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+.button-n span.price, .select-n span.price {
+  margin-left: auto;
+  font-size: 14px;
+  line-height: 14px;
+}
+.button-n.tcgplayer path, .tcgplayer.select-n path {
+  fill: #006885;
+}
+.button-n.cardhoarder, .cardhoarder.select-n {
+  color: rgba(191,76,27,0.9);
+  border-color: rgba(207,69,11,0.5);
+}
+li {
+  list-style-type: none;
+}
 
 
 
@@ -467,12 +491,17 @@ td a {
     margin: 0;
     max-width: none;
   }
+  #stores.toolbox-column {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+  }
 }
 
 
 @media screen and (min-width: 720px) {
   .card-profile .inner-flex {
-    flex-flow: row wrap;
+    /*flex-flow: row wrap;*/
     justify-content: center;
   }
   .card-image {
