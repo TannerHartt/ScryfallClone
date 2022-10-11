@@ -1,8 +1,9 @@
 <div class="card-profile">
   <div class="inner-flex">
+
     <div class="card-image">
       <div class="card-img-front">
-        <img [src]="card?.image_uris?.large" [alt]="card?.name" class="card border-black">
+        <img [src]="card?.image_uris?.large" [alt]="card?.name || card?.image_uris?.normal" class="card border-black">
       </div>
     </div>
 
@@ -31,7 +32,7 @@
         <p>{{ card?.flavor_text }}</p>
       </div>
     </div>
-    <div class="card-text-stats">
+    <div class="card-text-stats" *ngIf="card?.toughness && card?.power">
       {{ card?.power }}/{{ card?.toughness }}
     </div>
       <p class="card-text-artist">
@@ -117,7 +118,7 @@
       </div>
 
       <div class="print-langs">
-        <a title="Phyrexian Reaper" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/c/c/ccdd498b-1081-43fe-8193-518337a5a3ea.jpg?1562936179" data-card-id="ccdd498b-1081-43fe-8193-518337a5a3ea" href="https://scryfall.com/card/inv/117/phyrexian-reaper" class="print-langs-item current">en</a>
+        <a title="{{ card?.name }}" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/c/c/ccdd498b-1081-43fe-8193-518337a5a3ea.jpg?1562936179" data-card-id="" href="https://scryfall.com/card/inv/117/phyrexian-reaper" class="print-langs-item current">en</a>
         <a title="Segador Phyrexiano" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/5/a/5a5e3609-8aa4-4a18-95c3-e73720430602.jpg?1562913348" data-card-id="5a5e3609-8aa4-4a18-95c3-e73720430602" href="https://scryfall.com/card/inv/117/es/segador-phyrexiano" class="print-langs-item">es</a>
         <a title="Faucheur phyrexian" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/a/7/a7e21361-5d1e-4263-84cf-3d1db2faff5d.jpg?1562928884" data-card-id="a7e21361-5d1e-4263-84cf-3d1db2faff5d" href="https://scryfall.com/card/inv/117/fr/faucheur-phyrexian" class="print-langs-item">fr</a>
         <a title="Phyrexianischer Schnitter" data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/2/b/2bf78c4f-fc0a-47a2-a968-55e1d87a5759.jpg?1562903973" data-card-id="2bf78c4f-fc0a-47a2-a968-55e1d87a5759" href="https://scryfall.com/card/inv/117/de/phyrexianischer-schnitter" class="print-langs-item">de</a>
@@ -229,70 +230,77 @@
       <h6>Buy This Card</h6>
       <ul class="toolbox-links">
         <li>
-          <a class="button-n tcgplayer" href="https://www.tcgplayer.com/product/227104?page=1&amp;utm_campaign=affiliate&amp;utm_medium=card-detail-buy-nonfoil&amp;utm_source=scryfall">
+
+          <a class="button-n tcgplayer" href="{{ card?.purchase_uris?.tcgplayer }}">
             <svg focusable="false" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><path d="M6.275 1H3.083c-.562 0-1 .447-1 1v11c0 .553.448 1 1 1h8.834c.562 0 1-.447 1-1V2c0-.553-.448-1-1-1h-1.862l.684 3.15c.032.096-.01.175-.126.235-.084.044-.184.066-.3.066-.052 0-.09 0-.116-.005L7.358 5.64l.82 4.054c.025.064.01.124-.045.18-.054.056-.137.094-.246.114-.065.008-.11.012-.135.012-.187 0-.323-.05-.407-.15L4.29 4.897c-.07-.097-.048-.185.068-.265.097-.06.206-.09.33-.09.025 0 .063.004.115.012l2.746-1.41L6.274 1zM1 1.007C1 .45 1.447 0 2 0h11c.553 0 1 .45 1 1.007v12.986C14 14.55 13.553 15 13 15H2c-.553 0-1-.45-1-1.007V1.007z" fill="#000" fill-rule="evenodd"></path></svg>
 
             <i>Buy on TCGplayer</i>
-            <span class="price currency-usd">$0.05</span>
-          </a>            <a class="button-n tcgplayer" href="https://www.tcgplayer.com/product/227104?Printing=Foil&amp;page=1&amp;utm_campaign=affiliate&amp;utm_medium=card-detail-buy-foil&amp;utm_source=scryfall">
-          <svg focusable="false" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><path d="M6.275 1H3.083c-.562 0-1 .447-1 1v11c0 .553.448 1 1 1h8.834c.562 0 1-.447 1-1V2c0-.553-.448-1-1-1h-1.862l.684 3.15c.032.096-.01.175-.126.235-.084.044-.184.066-.3.066-.052 0-.09 0-.116-.005L7.358 5.64l.82 4.054c.025.064.01.124-.045.18-.054.056-.137.094-.246.114-.065.008-.11.012-.135.012-.187 0-.323-.05-.407-.15L4.29 4.897c-.07-.097-.048-.185.068-.265.097-.06.206-.09.33-.09.025 0 .063.004.115.012l2.746-1.41L6.274 1zM1 1.007C1 .45 1.447 0 2 0h11c.553 0 1 .45 1 1.007v12.986C14 14.55 13.553 15 13 15H2c-.553 0-1-.45-1-1.007V1.007z" fill="#000" fill-rule="evenodd"></path></svg>
+            <span class="price currency-usd">{{ card?.prices?.usd }}</span>
+          </a>
 
-          <i>Buy foil on TCGplayer</i>
-          <span class="price currency-usd">✶&nbsp;$0.13</span>
-        </a>        </li>
+          <a class="button-n tcgplayer" href="{{ card?.purchase_uris?.tcgplayer }}&Printing=Foil">
+            <svg focusable="false" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><path d="M6.275 1H3.083c-.562 0-1 .447-1 1v11c0 .553.448 1 1 1h8.834c.562 0 1-.447 1-1V2c0-.553-.448-1-1-1h-1.862l.684 3.15c.032.096-.01.175-.126.235-.084.044-.184.066-.3.066-.052 0-.09 0-.116-.005L7.358 5.64l.82 4.054c.025.064.01.124-.045.18-.054.056-.137.094-.246.114-.065.008-.11.012-.135.012-.187 0-.323-.05-.407-.15L4.29 4.897c-.07-.097-.048-.185.068-.265.097-.06.206-.09.33-.09.025 0 .063.004.115.012l2.746-1.41L6.274 1zM1 1.007C1 .45 1.447 0 2 0h11c.553 0 1 .45 1 1.007v12.986C14 14.55 13.553 15 13 15H2c-.553 0-1-.45-1-1.007V1.007z" fill="#000" fill-rule="evenodd"></path></svg>
+
+            <i>Buy foil on TCGplayer</i>
+            <span class="price currency-usd" *ngIf="card?.prices?.usd_foil">✶&nbsp;{{ card?.prices?.usd_foil }}</span>
+          </a>
+        </li>
+
         <li>
-          <a class="button-n" rel="nofollow" href="https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&amp;searchString=Captain+Vargus+Wrath&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=scryfall">
+          <a class="button-n" rel="nofollow" href="{{ card?.purchase_uris?.cardmarket }}">
             <svg focusable="false" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><g fill="#303030" fill-rule="nonzero"><path d="M4.168 14.093c-.084-.226-1-2.735-2.044-5.597C.038 2.773.094 3.14 1.18 2.73c.55-.21.592-.21.662.014.042.127.592 2.552 1.213 5.386 1.07 4.878 1.156 5.16 1.55 5.54.24.212.606.38.818.395.366 0 .366.014-.113.197-.747.296-.973.254-1.142-.17z"></path><path d="M5.31 12.782c-.268-.268-.282-.465-.282-2.862 0-2.777.085-3.186.663-3.003.424.14 2.2 2.17 2.1 2.41-.126.353-.393.24-1.17-.52l-.746-.734v4.145h4.103l-.282-.366c-.17-.212-.297-.48-.297-.607s.945-1.17 2.1-2.326c1.552-1.552 2.172-2.073 2.34-2.003.128.043.213.17.185.282-.03.112-.875 1.1-1.904 2.17l-1.862 1.96.494.48c.507.493.634 1.028.254 1.17-.127.042-1.396.084-2.82.084-2.41 0-2.608-.014-2.876-.282zM3.224 5.183C2.8 3.18 2.49 1.39 2.52 1.208c.027-.268.168-.367.788-.494l.733-.17V4.69c0 2.284-.013 4.145-.027 4.145-.028 0-.38-1.65-.79-3.652z"></path><path d="M7.143 6.917c-.776-.747-1.27-1.34-1.27-1.508 0-.184.692-.974 1.79-2.102l1.792-1.804-.536-.55c-.297-.31-.494-.62-.452-.705.07-.1.987-.156 2.763-.156 2.285 0 2.666.028 2.736.226.042.126.085 1.325.085 2.678 0 2.848-.07 3.003-.958 2.13l-.507-.523-1.79 1.762C9.61 7.552 8.918 8.13 8.707 8.13c-.198 0-.762-.437-1.565-1.213z"></path></g></svg>
 
             <i>Buy on Cardmarket</i>
-            <span class="price currency-eur">€0.11</span>
-          </a>            <a class="button-n" rel="nofollow" href="https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&amp;searchString=Captain+Vargus+Wrath&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=scryfall">
-          <svg focusable="false" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><g fill="#303030" fill-rule="nonzero"><path d="M4.168 14.093c-.084-.226-1-2.735-2.044-5.597C.038 2.773.094 3.14 1.18 2.73c.55-.21.592-.21.662.014.042.127.592 2.552 1.213 5.386 1.07 4.878 1.156 5.16 1.55 5.54.24.212.606.38.818.395.366 0 .366.014-.113.197-.747.296-.973.254-1.142-.17z"></path><path d="M5.31 12.782c-.268-.268-.282-.465-.282-2.862 0-2.777.085-3.186.663-3.003.424.14 2.2 2.17 2.1 2.41-.126.353-.393.24-1.17-.52l-.746-.734v4.145h4.103l-.282-.366c-.17-.212-.297-.48-.297-.607s.945-1.17 2.1-2.326c1.552-1.552 2.172-2.073 2.34-2.003.128.043.213.17.185.282-.03.112-.875 1.1-1.904 2.17l-1.862 1.96.494.48c.507.493.634 1.028.254 1.17-.127.042-1.396.084-2.82.084-2.41 0-2.608-.014-2.876-.282zM3.224 5.183C2.8 3.18 2.49 1.39 2.52 1.208c.027-.268.168-.367.788-.494l.733-.17V4.69c0 2.284-.013 4.145-.027 4.145-.028 0-.38-1.65-.79-3.652z"></path><path d="M7.143 6.917c-.776-.747-1.27-1.34-1.27-1.508 0-.184.692-.974 1.79-2.102l1.792-1.804-.536-.55c-.297-.31-.494-.62-.452-.705.07-.1.987-.156 2.763-.156 2.285 0 2.666.028 2.736.226.042.126.085 1.325.085 2.678 0 2.848-.07 3.003-.958 2.13l-.507-.523-1.79 1.762C9.61 7.552 8.918 8.13 8.707 8.13c-.198 0-.762-.437-1.565-1.213z"></path></g></svg>
+            <span class="price currency-eur">{{ card?.prices?.eur }}</span>
+          </a>
 
-          <i>Buy foil on Cardmarket</i>
-          <span class="price currency-eur">✶&nbsp;€0.30</span>
-        </a>        </li>
+          <a class="button-n" rel="nofollow" href="{{ card?.purchase_uris?.cardmarket }}">
+            <svg focusable="false" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><g fill="#303030" fill-rule="nonzero"><path d="M4.168 14.093c-.084-.226-1-2.735-2.044-5.597C.038 2.773.094 3.14 1.18 2.73c.55-.21.592-.21.662.014.042.127.592 2.552 1.213 5.386 1.07 4.878 1.156 5.16 1.55 5.54.24.212.606.38.818.395.366 0 .366.014-.113.197-.747.296-.973.254-1.142-.17z"></path><path d="M5.31 12.782c-.268-.268-.282-.465-.282-2.862 0-2.777.085-3.186.663-3.003.424.14 2.2 2.17 2.1 2.41-.126.353-.393.24-1.17-.52l-.746-.734v4.145h4.103l-.282-.366c-.17-.212-.297-.48-.297-.607s.945-1.17 2.1-2.326c1.552-1.552 2.172-2.073 2.34-2.003.128.043.213.17.185.282-.03.112-.875 1.1-1.904 2.17l-1.862 1.96.494.48c.507.493.634 1.028.254 1.17-.127.042-1.396.084-2.82.084-2.41 0-2.608-.014-2.876-.282zM3.224 5.183C2.8 3.18 2.49 1.39 2.52 1.208c.027-.268.168-.367.788-.494l.733-.17V4.69c0 2.284-.013 4.145-.027 4.145-.028 0-.38-1.65-.79-3.652z"></path><path d="M7.143 6.917c-.776-.747-1.27-1.34-1.27-1.508 0-.184.692-.974 1.79-2.102l1.792-1.804-.536-.55c-.297-.31-.494-.62-.452-.705.07-.1.987-.156 2.763-.156 2.285 0 2.666.028 2.736.226.042.126.085 1.325.085 2.678 0 2.848-.07 3.003-.958 2.13l-.507-.523-1.79 1.762C9.61 7.552 8.918 8.13 8.707 8.13c-.198 0-.762-.437-1.565-1.213z"></path></g></svg>
+
+            <i>Buy foil on Cardmarket</i>
+            <span class="price currency-eur">✶&nbsp;{{ card?.prices?.eur_foil }}</span>
+          </a>
+        </li>
+
         <li>
-          <a class="button-n cardhoarder" rel="nofollow" href="https://www.cardhoarder.com/cards/85328?affiliate_id=scryfall&amp;ref=card-profile&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=scryfall">
+          <a class="button-n cardhoarder" rel="nofollow" href="{{ card?.purchase_uris?.cardhoarder }}">
             <svg focusable="false" aria-hidden="true" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="#000"><path d="M2.5 4.516l5-4.167 5 4.167v5.968l-5 4.167-5-4.167V4.516z"></path><path d="M7.5 3v2L9 7v2l-1.5 2L6 9V7"></path><path d="M7.5 11v1M9 9l1 1M6 9l-1 1M9 7l1-1" stroke-linecap="square"></path></g></svg>
 
             <i>Buy on Cardhoarder</i>
-            <span class="price currency-tix">0.03</span>
-          </a>        </li>
+            <span class="price currency-tix">{{ card?.prices?.tix }}</span>
+          </a>
+        </li>
       </ul>
-
-
-
     </div>
 
     <div class="toolbox-column">
       <h6>Images and Data</h6>
       <ul class="toolbox-links">
         <li>
-          <a class="button-n" rel="nofollow" href="https://c1.scryfall.com/file/scryfall-cards/png/front/0/b/0beafec9-24db-4903-97c1-c5fe740ada83.png?1608911084">
+          <a class="button-n" rel="nofollow" href="https://c1.scryfall.com/file/scryfall-cards/png/front/0/b/{{card?.id}}.png?1608911084">
             <svg focusable="false" aria-hidden="true" width="12" height="15" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg"><path d="M11 9H1v2.718c0 .446.046.607.134.77.087.163.215.29.378.378.163.088.324.134.77.134H4c0-.552.895-1 2-1s2 .448 2 1h1.718c.446 0 .607-.046.77-.134.163-.087.29-.215.378-.378.088-.163.134-.324.134-.77V9zm0-1V2.282c0-.446-.046-.607-.134-.77-.087-.163-.215-.29-.378-.378-.163-.088-.324-.134-.77-.134H2.282c-.446 0-.607.046-.77.134-.163.087-.29.215-.378.378-.088.163-.134.324-.134.77V8h10zM1 0h10c.552 0 1 .448 1 1v13c0 .552-.448 1-1 1H1c-.552 0-1-.448-1-1V1c0-.552.448-1 1-1zm5 13.5c.552 0 1-.224 1-.5s-.448-.5-1-.5-1 .224-1 .5.448.5 1 .5z" fill="#000" fill-rule="evenodd"></path></svg>
 
             <b>Download PNG image (1.56 MB)</b>
           </a>          </li>
         <li>
-          <a class="button-n" rel="nofollow" href="https://c1.scryfall.com/file/scryfall-cards/art_crop/front/0/b/0beafec9-24db-4903-97c1-c5fe740ada83.jpg?1608911084">
+          <a class="button-n" rel="nofollow" href="https://c1.scryfall.com/file/scryfall-cards/art_crop/front/0/b/{{card?.id}}.jpg?1608911084">
             <svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path d="M1 4v22h28v-22h-28zm26 20h-24v-18h24v18zm-9-14l-5 6-2-2-6 8h20l-7-12zm-6.784 7.045l1.918 1.918 4.576-5.491 3.808 6.528h-12.518l2.216-2.955zm-4.216-5.045c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2z"></path></svg>
             <b>Download art crop (80.11 KB)</b>
           </a>          </li>
         <li>
-          <a class="button-n" rel="nofollow" href="https://api.scryfall.com/cards/0beafec9-24db-4903-97c1-c5fe740ada83?format=text&amp;pretty=true">
+          <a class="button-n" rel="nofollow" href="https://api.scryfall.com/cards/{{card?.id}}?format=text&amp;pretty=true">
             <svg width="11" height="15" viewBox="0 0 11 15" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M6 0h-6v15h11v-9.643l-5-5.357zm0 1.515l3.586 3.842h-3.586v-3.842zm4 12.414h-9v-12.857h4v5.357h5v7.5zm-8-5.357h7v-1.071h-7v1.071zm0 2.143h7v-1.071h-7v1.071zm0 2.143h7v-1.071h-7v1.071z"></path></svg>
 
             <b>Copy-pasteable text</b>
           </a>        </li>
         <li>
-          <a class="button-n" rel="nofollow" href="https://api.scryfall.com/cards/0beafec9-24db-4903-97c1-c5fe740ada83?format=json&amp;pretty=true">
+          <a class="button-n" rel="nofollow" href="https://api.scryfall.com/cards/{{card?.id}}?format=json&amp;pretty=true">
             <svg width="16" height="15" viewBox="0 0 16 15" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M1.302 11.786h2.569v1.071c0 .179-.024.349-.061.515l-.035.127-.13.356-.035.073h-1.352l-.159-.02c-.591-.076-1.041-.643-1.041-1.319 0-.295.084-.575.244-.804zm3.506-9.313c0-.773.553-1.401 1.228-1.401h2.261c.161.316.261.679.261 1.071 0 1.184-.844 2.143-1.875 2.143h5.625v8.241c0 .774-.553 1.401-1.228 1.401h-6.432c.103-.334.159-.696.159-1.071v-10.383zm9.375-.33c0 .59-.422 1.071-.938 1.071h-3.91c.103-.335.159-.696.159-1.071s-.056-.736-.159-1.071h3.91c.516 0 .938.481.938 1.071zm-12.188 12.83v.027h9.085c1.2 0 2.166-1.108 2.166-2.473v-8.241c1.031 0 1.875-.959 1.875-2.143 0-1.183-.844-2.143-1.875-2.143h-7.21c-1.2 0-2.166 1.108-2.166 2.473v8.241h-2.953c-.488.438-.797 1.111-.797 1.875 0 1.239.825 2.249 1.875 2.384z"></path></svg>
 
             <b>Copy-pasteable JSON</b>
           </a>        </li>
         <li>
-          <a class="button-n" rel="nofollow noreferrer" href="https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=497793">
+          <a class="button-n" rel="nofollow noreferrer" href="{{ card?.related_uris?.gatherer}}">
             <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M15 5c-4.094-3.531-11.125-4-14-4v24c2.875 0 9.906.469 14 4 4.094-3.531 11.125-4 14-4v-24c-2.875 0-9.906.469-14 4zm-1 20.906c-3.624-2.037-8.035-2.677-11-2.848v-19.99c4.69.429 8.085 1.265 11 3.69v19.148zm7-21.787c.635-.192 1.305-.352 2-.49v6.371l-1-1.333-1 1.333v-5.881zm6 18.94c-2.965.171-7.376.811-11 2.848v-19.148c.938-.781 1.936-1.383 3-1.874v11.115l3-4 3 4v-12.705c.643-.086 1.303-.163 2-.227v19.991z"></path></svg>
 
             <b>View on Gatherer</b>
