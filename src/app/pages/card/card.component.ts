@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CardService} from "../../services/card.service";
 import {Card} from "../../models/card";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-card',
@@ -11,18 +12,12 @@ export class CardComponent implements OnInit {
 
   constructor(private cardService: CardService) { }
 
-  card: Card | null = null;
+  @Input() card: Card | null = null;
   @Input() searchValue: Card | null = null;
 
   ngOnInit(): void {
-    this.getCard();
+
   }
 
-  getCard() {
-    this.cardService.getPR().subscribe((data) => {
-      this.card = data;
-      console.log(data);
-    });
-  }
 
 }
