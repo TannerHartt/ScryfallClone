@@ -113,3 +113,10 @@ export interface Card {
     cardhoarder: string;
   }
 }
+
+export interface Prints {
+  object: string;
+  total_cards: number;
+  has_more: boolean;
+  data: Card[];
+}
