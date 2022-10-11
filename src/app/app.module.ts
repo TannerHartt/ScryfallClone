@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'random', component: RandomComponent },
   { path: 'card', component: CardsComponent },
+  { path: 'card/random', component: RandomComponent },
 
   { path: '**', component: HomeComponent }
 ];
