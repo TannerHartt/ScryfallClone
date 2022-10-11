@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Card } from '../../models/card';
-import {CardService} from "../../services/card.service";
+import { CardService } from '../../services/card.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,14 +21,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   searchValue: string | null = '';
   searchCard: Card | null = null;
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCollageCards().then();
   }
 
   ngOnDestroy() {
-
   }
 
   async getCollageCards() {
@@ -58,6 +58,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.searchValue = null;
       }
     }
+  }
+
+  redirect() {
+    this.router.navigate(['card']).then();
   }
 
 
