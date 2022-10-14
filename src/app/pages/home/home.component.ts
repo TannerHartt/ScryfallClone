@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Card } from '../../models/card';
 import { CardService } from '../../services/card.service';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   cardFive: Card | null = null;
   cardSix: Card | null = null;
   cardSeven: Card | null = null;
-  searchValue: string | null = '';
+
+  searchValue: string = '';
   searchCard: Card | null = null;
 
   constructor(private cardService: CardService, private router: Router) { }
@@ -40,29 +41,33 @@ export class HomeComponent implements OnInit, OnDestroy {
     await this.cardService.getNDE().subscribe((card) => this.cardSeven = card);
   }
 
+  // TODO
+  // replace unnecessary fetches.
   search() {
     if(this.searchValue) {
       if (this.searchValue?.includes(' ')) {
-        this.searchValue = this.searchValue?.replace(' ', "+");
+        this.searchValue = this.replaceAll(this.searchValue,' ','+');
         this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
           this.searchCard = card;
-          console.log(card);
+          this.router.navigate(['/card/' + this.searchValue]).then();
         });
-        this.searchValue = null;
+
 
       } else {
         this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
           this.searchCard = card;
-          console.log(card);
+          this.router.navigate(['/card/' + this.searchValue]).then();
         });
-        this.searchValue = null;
       }
     }
   }
 
   redirect() {
-    this.router.navigate(['card']).then();
+    this.router.navigate(['/card/' + this.searchCard]).then();
   }
 
+  public replaceAll(str: string, find: string, replace: string) {
+    return str.replace(new RegExp(find,'g'), replace);
+  }
 
 }
