@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   cardSeven: Card | null = null;
 
   searchValue: string = '';
-  searchCard: Card | null = null;
 
   constructor(private cardService: CardService, private router: Router) { }
 
@@ -41,31 +40,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     await this.cardService.getNDE().subscribe((card) => this.cardSeven = card);
   }
 
-  // TODO
-  // replace unnecessary fetches.
+
   search() {
     if(this.searchValue) {
       if (this.searchValue?.includes(' ')) {
         this.searchValue = this.replaceAll(this.searchValue,' ','+');
-        this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
-          this.searchCard = card;
-          this.router.navigate(['/card/' + this.searchValue]).then();
-        });
-
-
+        this.router.navigate(['/card/' + this.searchValue]).then();
       } else {
-        this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
-          this.searchCard = card;
-          this.router.navigate(['/card/' + this.searchValue]).then();
-        });
+        this.router.navigate(['/card/' + this.searchValue]).then();
       }
     }
   }
 
-  redirect() {
-    this.router.navigate(['/card/' + this.searchCard]).then();
-  }
-
+  /*
+    Simple custom function to make the built-in 'replace' function replace all instances of the passed value.
+   */
   public replaceAll(str: string, find: string, replace: string) {
     return str.replace(new RegExp(find,'g'), replace);
   }
