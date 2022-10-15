@@ -188,12 +188,11 @@
   border-top: 2px solid rgba(0,0,0,0.05);
   padding: 12px 0 1px 0;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
 }
 .card-legality-row {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
   padding: 0 10px 0 10px;
 }
 .card-legality-item:nth-child(1) {width: 51%;}
