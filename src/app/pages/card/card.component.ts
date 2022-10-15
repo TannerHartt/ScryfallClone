@@ -1,8 +1,8 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {CardService} from "../../services/card.service";
-import {Card} from "../../models/card";
-import {Subscription} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component,  OnDestroy, OnInit} from '@angular/core';
+import { CardService } from '../../services/card.service';
+import { Card } from '../../models/card';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -13,8 +13,8 @@ export class CardComponent implements OnInit, OnDestroy {
 
   constructor(private cardService: CardService, private route: ActivatedRoute, private router: Router) { }
 
-  @Input() card: Card | null = null;
-  @Input() searchValue: string = '';
+  card: Card | null = null;
+  searchValue: string = '';
   subscription: Subscription = new Subscription();
 
 
