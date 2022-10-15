@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {CardService} from "../../services/card.service";
 import {Card} from "../../models/card";
 import {Subscription} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-card',
@@ -11,16 +11,21 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CardComponent implements OnInit, OnDestroy {
 
-  constructor(private cardService: CardService, private route: ActivatedRoute) { }
+  constructor(private cardService: CardService, private route: ActivatedRoute, private router: Router) { }
 
   @Input() card: Card | null = null;
   @Input() searchValue: string = '';
   subscription: Subscription = new Subscription();
 
-  // TODO create condition statement to handle which card to fetch
+
   ngOnInit(): void {
     this.searchValue = this.route.snapshot.paramMap.get("name") as string;
-    this.getCard();
+
+    if(this.router.url === '/card/random') {
+      this.getRandomCard();
+    } else {
+     this.getCard();
+    }
   }
 
   ngOnDestroy() {
@@ -32,6 +37,12 @@ export class CardComponent implements OnInit, OnDestroy {
 
   getCard() {
     this.subscription = this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
+      this.card = card;
+    });
+  }
+
+  getRandomCard() {
+    this.subscription = this.cardService.getRandomCard().subscribe((card) => {
       this.card = card;
     });
   }
