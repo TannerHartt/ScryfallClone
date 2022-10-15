@@ -14,7 +14,7 @@ export class RandomComponent implements OnInit, OnDestroy {
   card: Card | null = null;
   cardSubscription: Subscription;
 
-  constructor(private cardService: CardService, private router: Router) {
+  constructor(private cardService: CardService) {
     this.cardSubscription = new Subscription();
   }
 
