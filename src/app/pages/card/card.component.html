@@ -24,13 +24,14 @@
         <span class="card-text-mana-cost"><abbr class="card-symbol card-symbol-4" title="four generic mana">4</abbr><abbr class="card-symbol card-symbol-B" title="one black mana">B</abbr></span>
       </h1>        <p class="card-text-type-line" lang="en">
       {{ card?.type_line }}
-    </p>          <div class="card-text-box" lang="en">
-      <div class="card-text-oracle">
-        <p>{{ card?.oracle_text }}</p>
-      </div>
-      <div class="card-text-flavor">
-        <p>{{ card?.flavor_text }}</p>
-      </div>
+    </p>
+      <div class="card-text-box" lang="en" *ngIf="card?.oracle_text">
+        <div class="card-text-oracle">
+          <p>{{ card?.oracle_text }}</p>
+        </div>
+        <div class="card-text-flavor">
+          <p>{{ card?.flavor_text }}</p>
+        </div>
     </div>
     <div class="card-text-stats" *ngIf="card?.toughness && card?.power">
       {{ card?.power }}/{{ card?.toughness }}
