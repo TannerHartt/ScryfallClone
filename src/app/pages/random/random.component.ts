@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import { CardService } from '../../services/card.service';
 import { Card } from '../../models/card';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-random',
@@ -13,7 +14,7 @@ export class RandomComponent implements OnInit, OnDestroy {
   card: Card | null = null;
   cardSubscription: Subscription;
 
-  constructor(private cardService: CardService) {
+  constructor(private cardService: CardService, private router: Router) {
     this.cardSubscription = new Subscription();
   }
 
@@ -22,7 +23,8 @@ export class RandomComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.cardSubscription.unsubscribe()
+    this.cardSubscription.unsubscribe();
+    this.card = null;
   }
 
   getRandomCard() {
