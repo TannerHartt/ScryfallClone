@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Card } from '../../models/card';
 import { CardService } from '../../services/card.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class HomeComponent implements OnInit, OnDestroy {
 
   isNew: boolean = false;
+
   cardOne: Card | null = null;
   cardTwo: Card | null = null;
   cardThree: Card | null = null;
@@ -18,6 +20,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   cardFive: Card | null = null;
   cardSix: Card | null = null;
   cardSeven: Card | null = null;
+
+  subscription1: Subscription = new Subscription();
+  subscription2: Subscription = new Subscription();
+  subscription3: Subscription = new Subscription();
+  subscription4: Subscription = new Subscription();
+  subscription5: Subscription = new Subscription();
+  subscription6: Subscription = new Subscription();
+  subscription7: Subscription = new Subscription();
 
   searchValue: string = '';
 
@@ -28,16 +38,24 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.searchValue = '';
+    this.subscription1.unsubscribe();
+    this.subscription2.unsubscribe();
+    this.subscription3.unsubscribe();
+    this.subscription4.unsubscribe();
+    this.subscription5.unsubscribe();
+    this.subscription6.unsubscribe();
+    this.subscription7.unsubscribe();
   }
 
   async getCollageCards() {
-    await this.cardService.getTSS().subscribe((card) => this.cardOne = card);
-    await this.cardService.getKarn().subscribe((card) => this.cardTwo = card);
-    await this.cardService.getBTM().subscribe((card) => this.cardThree = card);
-    await this.cardService.getYUP().subscribe((card) => this.cardFour = card);
-    await this.cardService.getHF().subscribe((card) => this.cardFive = card);
-    await this.cardService.getASR().subscribe((card) => this.cardSix = card);
-    await this.cardService.getNDE().subscribe((card) => this.cardSeven = card);
+    this.subscription1 = await this.cardService.getTSS().subscribe((card) => this.cardOne = card);
+    this.subscription2 = await this.cardService.getKarn().subscribe((card) => this.cardTwo = card);
+    this.subscription3 = await this.cardService.getBTM().subscribe((card) => this.cardThree = card);
+    this.subscription4 = await this.cardService.getYUP().subscribe((card) => this.cardFour = card);
+    this.subscription5 = await this.cardService.getHF().subscribe((card) => this.cardFive = card);
+    this.subscription6 = await this.cardService.getASR().subscribe((card) => this.cardSix = card);
+    this.subscription7 = await this.cardService.getNDE().subscribe((card) => this.cardSeven = card);
   }
 
 
@@ -50,6 +68,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.router.navigate(['/card/' + this.searchValue]).then();
       }
     }
+  }
+
+  redirect(name: string | undefined) {
+    this.router.navigate(['/card/' + name]).then();
   }
 
   /*
