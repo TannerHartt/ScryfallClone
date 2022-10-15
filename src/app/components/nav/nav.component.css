@@ -60,6 +60,7 @@
   color: rgba(255,255,255,0.75);
   padding: 0 7px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .header-link-divider {
