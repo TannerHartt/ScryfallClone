@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import {Card} from "../models/card";
+import { Card } from '../models/card';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +11,8 @@ export class CardService {
 
   constructor(private http: HttpClient) { }
 
-
   getRandomCard() {
     return this.http.get<Card>(`${this.scryfallUrl}/cards/random`);
-  }
-
-  getPR() {
-    return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=Phyrexian+Reaper`);
-
   }
 
   getSearchValue(searchValue: string) {
