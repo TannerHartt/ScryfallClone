@@ -7,19 +7,19 @@ export class LanguagePipe implements PipeTransform {
 
   transform(value: any): any {
     if(value === 'en' || 'EN' || 'En') {
-      return value = 'English';
+      return 'English';
     } else if(value === 'ES' || 'es' || 'Es') {
-      return value = 'Spanish';
+      return 'Spanish';
     } else if(value === 'FR' || 'fr' || 'Fr') {
-      return value == 'French';
+      return 'French';
     } else if(value === 'DR' || 'dr' || 'Dr') {
-      return value = 'German';
+      return 'German';
     } else if(value === 'IT' || 'it' || 'It') {
-      return value = 'Italian';
+      return 'Italian';
     } else if(value === 'PT' || 'pt' || 'Pt') {
-      return value = 'Portuguese';
+      return 'Portuguese';
     } else if(value === 'JA' || 'ja' || 'Ja') {
-      return value = 'Japanese';
+      return 'Japanese';
     } else {
       return value;
     }

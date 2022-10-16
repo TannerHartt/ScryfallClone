@@ -89,9 +89,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  /*
-    Simple custom function to make the built-in 'replace' function replace all instances of the passed value.
-   */
+  // Simple custom function to make the built-in 'replace' function replace all instances of the passed value.
   public replaceAll(str: string, find: string, replace: string) {
     return str.replace(new RegExp(find,'g'), replace);
   }

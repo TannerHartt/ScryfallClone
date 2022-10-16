@@ -248,13 +248,15 @@
   border-radius: 2px 2px 0 0;
   text-decoration: none;
 }
+
 .prints-current-set-symbol {
   left: 9px;
   max-height: 24px;
   position: absolute;
   top: 14px;
   width: 24px;
-  fill: #FDFDFD;
+  fill: #FFFFFF;
+
 }
 .prints-current-set-name {
   font-size: 16px;
