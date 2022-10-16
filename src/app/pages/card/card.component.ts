@@ -19,8 +19,11 @@ export class CardComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
+    // Grabs the "name" parameter from the url route and stores it in a string to fetch the correct card.
     this.searchValue = this.route.snapshot.paramMap.get("name") as string;
 
+    // A simple condition statement to control which fetch function to call depending on what route is active.
+    // This allows the random page to work differently than the search display functionality while still reusing the component.
     if(this.router.url === '/card/random') {
       this.getRandomCard();
     } else {
@@ -28,6 +31,7 @@ export class CardComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Resetting stored card data, subscriptions, and the search string.
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.card = null;
@@ -35,12 +39,14 @@ export class CardComponent implements OnInit, OnDestroy {
   }
 
 
+  // A function to fetch the card from the user entered search value to store and display.
   getCard() {
     this.subscription = this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
       this.card = card;
     });
   }
 
+  // Fetches a random card from the API and stores it to display.
   getRandomCard() {
     this.subscription = this.cardService.getRandomCard().subscribe((card) => {
       this.card = card;

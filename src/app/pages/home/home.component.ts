@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.getCollageCards().then();
   }
 
+  // Resetting all subscriptions and search strings;
   ngOnDestroy() {
     this.searchValue = '';
     this.subscription1.unsubscribe();
@@ -48,6 +49,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription7.unsubscribe();
   }
 
+  // TODO implement better solution to fetching collage cards.
+  // A simple function that fetches all the cards to display on the home page collage.
   async getCollageCards() {
     this.subscription1 = await this.cardService.getTSS().subscribe((card) => this.cardOne = card);
     this.subscription2 = await this.cardService.getKarn().subscribe((card) => this.cardTwo = card);
@@ -59,19 +62,31 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
 
+  /*
+   * This function runs upon form submission and formats the user entered search value to comply with API formatting requirements.
+   * Then it updates the route to the enter value and redirects the user to the correct card display.
+   * It replaces all spaces in the string with the plus character.
+   */
   search() {
     if(this.searchValue) {
       if (this.searchValue?.includes(' ')) {
         this.searchValue = this.replaceAll(this.searchValue,' ','+');
-        this.router.navigate(['/card/' + this.searchValue]).then();
+        this.router.navigate(['/card/' + this.searchValue]).then(() => {
+          window.location.reload();
+        });
       } else {
-        this.router.navigate(['/card/' + this.searchValue]).then();
+        this.router.navigate(['/card/' + this.searchValue]).then(() => {
+          window.location.reload();
+        });
       }
     }
   }
 
+  // This function takes in a card name as a string and redirects the user to the corresponding route, then refreshes the page.
   redirect(name: string | undefined) {
-    this.router.navigate(['/card/' + name]).then();
+    this.router.navigate(['/card/' + name]).then(() => {
+      window.location.reload();
+    });
   }
 
   /*
@@ -79,6 +94,11 @@ export class HomeComponent implements OnInit, OnDestroy {
    */
   public replaceAll(str: string, find: string, replace: string) {
     return str.replace(new RegExp(find,'g'), replace);
+  }
+
+  // A simple function to reload the page when clicking the home page logo.
+  reload() {
+    window.location.reload();
   }
 
 }
