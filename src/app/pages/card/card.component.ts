@@ -3,6 +3,7 @@ import { CardService } from '../../services/card.service';
 import { Card } from '../../models/card';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Sets } from '../../models/sets';
 
 @Component({
   selector: 'app-card',
@@ -14,8 +15,10 @@ export class CardComponent implements OnInit, OnDestroy {
   constructor(private cardService: CardService, private route: ActivatedRoute, private router: Router) { }
 
   card: Card | null = null;
+  set: Sets | null = null;
   searchValue: string = '';
   subscription: Subscription = new Subscription();
+  setSubscription: Subscription = new Subscription();
 
 
   ngOnInit(): void {
@@ -34,6 +37,8 @@ export class CardComponent implements OnInit, OnDestroy {
   // Resetting stored card data, subscriptions, and the search string.
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.setSubscription.unsubscribe();
+    this.set = null;
     this.card = null;
     this.searchValue = '';
   }
@@ -43,6 +48,7 @@ export class CardComponent implements OnInit, OnDestroy {
   getCard() {
     this.subscription = this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
       this.card = card;
+      this.getSetData(card.set_id);
     });
   }
 
@@ -50,7 +56,15 @@ export class CardComponent implements OnInit, OnDestroy {
   getRandomCard() {
     this.subscription = this.cardService.getRandomCard().subscribe((card) => {
       this.card = card;
+      this.getSetData(card.set_id);
     });
   }
 
+  getSetData(set: string) {
+    this.setSubscription = this.cardService.getSetData(set).subscribe((setData) => {
+      this.set = setData;
+    })
+  }
+
 }
+
