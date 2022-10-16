@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 import { Card } from '../models/card';
+import { Sets } from '../models/sets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
 
-  scryfallUrl: string = "https://api.scryfall.com";
+  scryfallUrl: string = 'https://api.scryfall.com';
 
   constructor(private http: HttpClient) { }
+
+  getSetData(setId: string) {
+    return this.http.get<Sets>(`${this.scryfallUrl}/sets/${setId}`);
+  }
 
   getRandomCard() {
     return this.http.get<Card>(`${this.scryfallUrl}/cards/random`);
