@@ -27,6 +27,7 @@ export interface Card {
   cmc: number;
   type_line: string;
   oracle_text: string;
+  loyalty: string;
   colors: string[];
   color_identity: string[];
   keywords: string[];
