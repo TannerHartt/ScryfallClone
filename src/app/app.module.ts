@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CardsComponent } from './pages/cards/cards.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RandomComponent } from './pages/random/random.component';
-import { Routes, RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
-import { FormsModule } from '@angular/forms';
 import { NavComponent } from './components/nav/nav.component';
 import { CardComponent } from './pages/card/card.component';
 import { LanguagePipe } from './services/language.pipe';
+import { SearchComponent } from './pages/search/search.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'random', component: RandomComponent },
   { path: 'card/:name', component: CardsComponent },
   { path: 'card/random', component: RandomComponent },
+  { path: 'cards/search', component: SearchComponent },
 
   { path: '**', component: HomeComponent }
 ];
@@ -32,6 +34,7 @@ const routes: Routes = [
     NavComponent,
     CardComponent,
     LanguagePipe,
+    SearchComponent,
   ],
     imports: [
         BrowserModule,
