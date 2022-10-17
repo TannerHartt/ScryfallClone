@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Card } from '../models/card';
+import { Card, Prints } from '../models/card';
 import { Sets } from '../models/sets';
+import { of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,28 @@ export class CardService {
   getSearchValue(searchValue: string) {
     return this.http.get<Card>(`${this.scryfallUrl}/cards/named?fuzzy=${searchValue}`);
   }
+
+  getRedWhiteOneDrops() {
+    return this.http.get<Prints>(`${this.scryfallUrl}/cards/search?q=c%3Awhite+cmc%3D1+c%3Ared&page%3D1`)
+      .pipe(switchMap((res) => {
+        return of(res.data);
+      })
+    );
+  }
+
+  getChandra() {
+    return this.http.get<Prints>(`${this.scryfallUrl}/cards/search?q=chandra`)
+      .pipe(switchMap((res) => {
+          return of(res.data);
+        })
+      );
+  }
+
+
+
+
+
+
 
   getTSS() {
     return this.http.get<Card>(`${this.scryfallUrl}/cards/named?exact=tivit+seller+of+secrets`);
