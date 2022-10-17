@@ -34,7 +34,7 @@ export class CardComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Resetting stored card data, subscriptions, and the search string.
+  // Resetting stored card data, set data, subscriptions, and search string.
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.setSubscription.unsubscribe();
@@ -47,8 +47,8 @@ export class CardComponent implements OnInit, OnDestroy {
   // A function to fetch the card from the user entered search value to store and display.
   getCard() {
     this.subscription = this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
+      this.getSetData(card);
       this.card = card;
-      this.getSetData(card.set_id);
     });
   }
 
@@ -56,14 +56,14 @@ export class CardComponent implements OnInit, OnDestroy {
   getRandomCard() {
     this.subscription = this.cardService.getRandomCard().subscribe((card) => {
       this.card = card;
-      this.getSetData(card.set_id);
+      this.getSetData(card);
     });
   }
 
-  getSetData(set: string) {
-    this.setSubscription = this.cardService.getSetData(set).subscribe((setData) => {
+  getSetData(card: Card) {
+    this.setSubscription = this.cardService.getSetData(card?.set_id).subscribe((setData) => {
       this.set = setData;
-    })
+    });
   }
 
 }
