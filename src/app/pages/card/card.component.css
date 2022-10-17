@@ -169,7 +169,7 @@
   border-bottom: 1px solid rgba(0,0,0,0.1);
   padding: 9px 12px 9px 12px;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: normal;
 }
 .card-text-stats, .card-text-watermark, .card-text-artist, .card-text-storyspotlight, .card-text-attraction-lights {
   border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -255,8 +255,7 @@
   position: absolute;
   top: 14px;
   width: 24px;
-  fill: #FFFFFF;
-
+  fill: #FFFFFF !important;
 }
 .prints-current-set-name {
   font-size: 16px;

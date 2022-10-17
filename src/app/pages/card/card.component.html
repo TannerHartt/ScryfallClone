@@ -33,6 +33,9 @@
           <p>{{ card?.flavor_text }}</p>
         </div>
     </div>
+      <div class="card-text-stats" *ngIf="card?.loyalty">
+        Loyalty: {{ card?.loyalty }}
+      </div>
     <div class="card-text-stats" *ngIf="card?.toughness && card?.power">
       {{ card?.power }}/{{ card?.toughness }}
     </div>
@@ -149,18 +152,21 @@
             <a data-component="card-tooltip" data-card-image-front="https://c1.scryfall.com/file/scryfall-cards/large/front/c/c/ccdd498b-1081-43fe-8193-518337a5a3ea.jpg?1562936179" data-card-id="ccdd498b-1081-43fe-8193-518337a5a3ea" href="/card/inv/117/phyrexian-reaper"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="rarity-common"><path d="M12 4.435c0 .106-.063.221-.188.346l-2.618 2.553.62 3.606.007.144c0 .101-.025.186-.076.256-.05.07-.124.105-.22.105-.091 0-.188-.029-.288-.087l-3.238-1.702-3.238 1.702c-.106.058-.202.087-.288.087-.101 0-.177-.035-.227-.105-.05-.07-.076-.155-.076-.256l.014-.144.62-3.606-2.625-2.553c-.12-.13-.18-.245-.18-.346 0-.178.135-.288.404-.332l3.62-.526 1.623-3.281c.091-.197.209-.296.353-.296s.262.099.353.296l1.623 3.281 3.62.526c.269.043.404.154.404.332z" fill="red"></path></svg>
 
               Invasion
-            </a>          </td>
+            </a>
+          </td>
           <td>
             <a title="Nonfoil: $0.10, Foil: $1.29" class="currency-usd" href="https://www.tcgplayer.com/product/7585?page=1&amp;utm_campaign=affiliate&amp;utm_medium=print-sidebar&amp;utm_source=scryfall">$0.10</a>
           </td>
           <td>
             <a class="currency-eur" rel="nofollow" href="https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&amp;searchString=Phyrexian+Reaper&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=scryfall">
               €0.02
-            </a>          </td>
+            </a>
+          </td>
           <td>
             <a class="currency-tix" rel="nofollow" href="https://www.cardhoarder.com/cards/14681?affiliate_id=scryfall&amp;ref=card-profile&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=scryfall">
               0.11
-            </a>          </td>
+            </a>
+          </td>
         </tr>    </tbody>
       </table>
 
