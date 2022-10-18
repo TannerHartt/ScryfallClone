@@ -47,61 +47,85 @@
         <div class="card-legality-row">
           <div class="card-legality-item">
             <dt>Standard</dt>
-            <dd class="not-legal">{{ card?.legalities?.standard }}</dd>
+            <dd class="not-legal" [ngClass]="{'legal' : card?.legalities?.standard === 'legal'}">
+              {{ card?.legalities?.standard | underscore }}
+            </dd>
           </div>
           <div class="card-legality-item">
             <dt>Alchemy</dt>
-            <dd class="not-legal">{{ card?.legalities?.alchemy }}</dd>
+            <dd class="not-legal" [ngClass]="{'legal' : card?.legalities?.alchemy === 'legal'}">
+              {{ card?.legalities?.alchemy | underscore }}
+            </dd>
           </div>
         </div>
         <div class="card-legality-row">
           <div class="card-legality-item">
             <dt>Pioneer</dt>
-            <dd class="not-legal">{{ card?.legalities?.pioneer }}</dd>
+            <dd class="not-legal" [ngClass]="{'legal' : card?.legalities?.pioneer === 'legal'}">
+              {{ card?.legalities?.pioneer | underscore }}
+            </dd>
           </div>
           <div class="card-legality-item">
             <dt>Explorer</dt>
-            <dd class="not-legal">{{ card?.legalities?.explorer }}</dd>
+            <dd class="not-legal" [ngClass]="{'legal' : card?.legalities?.explorer === 'legal'}">
+              {{ card?.legalities?.explorer | underscore }}
+            </dd>
           </div>
         </div>
         <div class="card-legality-row">
           <div class="card-legality-item">
             <dt>Modern</dt>
-            <dd class="not-legal">{{ card?.legalities?.modern }}</dd>
+            <dd class="not-legal" [ngClass]="{'legal' : card?.legalities?.modern === 'legal'}">
+              {{ card?.legalities?.modern | underscore }}
+            </dd>
           </div>
           <div class="card-legality-item">
             <dt>Brawl</dt>
-            <dd class="not-legal">{{ card?.legalities?.brawl }}</dd>
+            <dd class="not-legal" [ngClass]="{'legal' : card?.legalities?.brawl === 'legal'}">
+              {{ card?.legalities?.brawl | underscore }}
+            </dd>
           </div>
         </div>
         <div class="card-legality-row">
           <div class="card-legality-item">
             <dt>Legacy</dt>
-            <dd class="legal">{{ card?.legalities?.legacy }}</dd>
+            <dd class="non-legal" [ngClass]="{'legal' : card?.legalities?.legacy === 'legal'}">
+              {{ card?.legalities?.legacy | underscore }}
+            </dd>
           </div>
           <div class="card-legality-item">
             <dt>Historic</dt>
-            <dd class="not-legal">{{ card?.legalities?.historic }}</dd>
+            <dd class="not-legal" [ngClass]="{'legal' : card?.legalities?.historic === 'legal'}">
+              {{ card?.legalities?.historic | underscore }}
+            </dd>
           </div>
         </div>
         <div class="card-legality-row">
           <div class="card-legality-item">
             <dt>Vintage</dt>
-            <dd class="legal">{{ card?.legalities?.vintage }}</dd>
+            <dd class="not-legal" [ngClass]="{'legal' : card?.legalities?.vintage === 'legal'}">
+              {{ card?.legalities?.vintage | underscore }}
+            </dd>
           </div>
           <div class="card-legality-item">
             <dt>Pauper</dt>
-            <dd class="legal">{{ card?.legalities?.pauper }}</dd>
+            <dd class="not-legal" [ngClass]="{'legal' : card?.legalities?.pauper === 'legal'}">
+              {{ card?.legalities?.pauper | underscore }}
+            </dd>
           </div>
         </div>
         <div class="card-legality-row">
           <div class="card-legality-item">
             <dt>Commander</dt>
-            <dd class="legal">{{ card?.legalities?.commander }}</dd>
+            <dd class="non-legal" [ngClass]="{'legal' : card?.legalities?.commander === 'legal'}">
+              {{ card?.legalities?.commander | underscore }}
+            </dd>
           </div>
           <div class="card-legality-item">
             <dt>Penny</dt>
-            <dd class="not-legal">{{ card?.legalities?.penny }}</dd>
+            <dd class="not-legal" [ngClass]="{'legal' : card?.legalities?.penny === 'legal'}">
+              {{ card?.legalities?.penny | underscore }}
+            </dd>
           </div>
         </div>
       </dl>
