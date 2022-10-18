@@ -13,6 +13,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { CardComponent } from './pages/card/card.component';
 import { LanguagePipe } from './services/language.pipe';
 import { SearchComponent } from './pages/search/search.component';
+import { UnderscorePipe } from './services/underscore.pipe';
+import { FormatPipe } from './services/format.pipe';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,6 +37,8 @@ const routes: Routes = [
     CardComponent,
     LanguagePipe,
     SearchComponent,
+    UnderscorePipe,
+    FormatPipe,
   ],
     imports: [
         BrowserModule,
