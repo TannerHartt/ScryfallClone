@@ -1,1 +1,342 @@
-<p>search works!</p>
+<app-nav xmlns:v-bind="http://www.w3.org/1999/xhtml"></app-nav>
+<div id="main" class="main" role="main">
+
+
+  <div data-component="search-controls" class="search-controls">
+    <div class="search-controls-inner"><div class="search-controls-display-options">
+      <label for="unique" class="vh">Show</label>
+      <select name="unique" id="unique" title="Change how cards are found" class="select-n">
+        <option selected="selected" value="cards">Cards</option>
+        <option value="prints">All prints</option>
+        <option value="art">Unique art</option>
+      </select> <label for="as">as</label>
+      <select name="as" id="as" title="Change how cards are displayed" class="select-n">
+        <option selected="selected" value="grid">Images</option>
+        <option value="checklist">Checklist</option>
+        <option value="text">Text Only</option>
+        <option value="full">Full</option>
+      </select> <label for="order">sorted by
+    </label>
+      <select name="order" id="order" title="Change how cards are sorted" class="select-n">
+        <option selected="selected" value="name">Name</option>
+        <option value="released">Release Date</option>
+        <option value="set">Set/Number</option>
+        <option value="rarity">Rarity</option>
+        <option value="color">Color</option>
+        <option value="usd">Price: USD</option>
+        <option value="tix">Price: TIX</option>
+        <option value="eur">Price: EUR</option>
+        <option value="cmc">Mana Value</option>
+        <option value="power">Power</option>
+        <option value="toughness">Toughness</option>
+        <option value="artist">Artist Name</option>
+        <option value="edhrec">EDHREC Rank</option>
+        <option value="review">Set Review</option>
+      </select>
+      <label title="Sort direction" for="dir">:</label>
+      <select name="dir" id="dir" title="Change sort direction, ascending or descending" class="select-n">
+        <option value="">Auto</option>
+        <option value="asc">Asc</option>
+        <option value="desc">Desc</option>
+      </select>
+    </div>
+      <div class="search-controls-pagination">
+        <span aria-hidden="true" class="button-n disabled icon-only">
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 4.438l-1.375-1.438-12.625 12 12.563 12 1.437-1.406-11.094-10.594 11.094-10.562zm12 0l-1.375-1.438-12.625 12 12.563 12 1.437-1.406-11.094-10.594 11.094-10.562zM2 3h-1.66v24h1.66z"></path>
+          </svg> <b class="vh">First Page</b></span>
+        <span aria-hidden="true" class="button-n disabled">
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.625 3l-12.625 12 12.563 12 1.437-1.406-11.094-10.594 11.094-10.562z"></path>
+          </svg> <b>Previous</b>
+        </span> <span aria-hidden="true" class="button-n disabled">
+        <b>Next 60</b>
+        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.375 3l12.625 12-12.562 12-1.438-1.406 11.094-10.594-11.094-10.562z"></path>
+        </svg>
+      </span>
+        <span aria-hidden="true" class="button-n disabled icon-only"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4.438l1.375-1.438 12.625 12-12.563 12-1.437-1.406 11.094-10.594-11.094-10.562zm-12 0l1.375-1.438 12.625 12-12.563 12-1.437-1.406 11.094-10.594-11.094-10.562zM28 3h1.66v24h-1.66z"></path>
+        </svg>
+          <b class="vh">Last Page</b>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <form data-component="search-controls-mobile" action="/search" accept-charset="UTF-8" method="get" class="search-controls-mobile">
+    <input type="hidden" name="q" id="q" value="chandra" autocomplete="off">
+    <div class="search-controls-mobile-inner">
+      <span aria-hidden="true" class="button-n disabled">
+        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.625 3l-12.625 12 12.563 12 1.437-1.406-11.094-10.594 11.094-10.562z"></path>
+        </svg>
+        <b>Previous</b>
+      </span>
+      <button type="button" class="button-n">
+        <svg focusable="false" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M93.633 93.812a1.985 1.985 0 0 1 0 2.805l-2.805 2.804a1.985 1.985 0 0 1-2.804 0L68.387 79.784a1.956 1.956 0 0 1-.454-.734c-4.027 2.941-8.972 4.7-14.344 4.7-13.46 0-24.375-10.91-24.375-24.372 0-13.46 10.914-24.375 24.375-24.375s24.375 10.914 24.375 24.375c0 5.371-1.757 10.316-4.699 14.344.27.094.52.235.735.453zM53.59 43.132c-8.973 0-16.25 7.273-16.25 16.25 0 8.973 7.273 16.246 16.25 16.246 8.973 0 16.25-7.273 16.25-16.246 0-8.977-7.277-16.25-16.25-16.25zM4.68 28.594h59.184v-6.281H4.68zm0-22.496v6.281h59.184V6.098zm0 38.707h22.102a30.283 30.283 0 0 1 4.664-6.281l-26.766.004zm0 9.938v6.28h18.383c-.028-.527-.078-1.046-.078-1.577 0-1.602.164-3.164.402-4.703z"></path>
+        </svg>
+        <b>View</b>
+      </button>
+      <span aria-hidden="true" class="button-n disabled">
+        <b>Next </b>
+        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.375 3l12.625 12-12.562 12-1.438-1.406 11.094-10.594-11.094-10.562z"></path>
+        </svg>
+      </span>
+    </div>
+    <div class="search-controls-mobile-options">
+      <div class="search-controls-mobile-option">
+        <label for="unique">Find</label>
+        <select name="unique" id="unique" title="Change how cards are found" class="select-n">
+          <option selected="selected" value="cards">Cards</option>
+          <option value="prints">All prints</option>
+          <option value="art">Unique art</option>
+        </select>
+      </div>
+      <div class="search-controls-mobile-option">
+        <label for="as">Display as</label>
+        <select name="as" id="as" title="Change how cards are displayed" class="select-n">
+          <option selected="selected" value="grid">Images</option>
+          <option value="checklist">Checklist</option>
+          <option value="text">Text Only</option>
+          <option value="full">Full</option>
+        </select>
+      </div>
+      <div class="search-controls-mobile-option">
+        <label for="order">Sorted by</label>
+        <select name="order" id="order" title="Change how cards are sorted" class="select-n">
+          <option selected="selected" value="name">Name</option>
+          <option value="released">Release Date</option>
+          <option value="set">Set/Number</option>
+          <option value="rarity">Rarity</option>
+          <option value="color">Color</option>
+          <option value="usd">Price: USD</option>
+          <option value="tix">Price: TIX</option>
+          <option value="eur">Price: EUR</option>
+          <option value="cmc">Mana Value</option>
+          <option value="power">Power</option>
+          <option value="toughness">Toughness</option>
+          <option value="artist">Artist Name</option>
+          <option value="edhrec">EDHREC Rank</option>
+          <option value="review">Set Review</option>
+        </select>
+      </div>
+      <div class="search-controls-mobile-option">
+        <label for="dir">Sort direction</label>
+        <select name="dir" id="dir" title="Change sort direction, ascending or descending" class="select-n">
+          <option value="">Auto</option>
+          <option value="asc">Asc</option>
+          <option value="desc">Desc</option>
+        </select>
+      </div>
+      <div class="search-controls-mobile-option">
+        <button type="submit" class="button-n primary-n">Search with these options</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="search-info">
+    <p>
+      <strong>35 cards</strong>
+      <span class="search-summary-english">where the name includes “chandra”</span>
+    </p>
+  </div>
+
+
+
+
+
+
+
+  <div class="card-grid">
+    <div class="card-grid-inner">
+
+      <div class="card-grid-item" *ngFor="let card of cards">
+        <a class="card-grid-item-card" (click)="redirect(card)">
+          <span class="card-grid-item-invisible-label" aria-hidden="true">{{ card?.name }}</span>
+          <div class="card-grid-item-card-faces">
+
+            <div class="card-grid-item-card-front">
+              <img [src]="card?.image_uris?.normal" class="card zen border-black" alt="{{card?.name}} ({{card?.set | uppercase}})" title="{{card?.name}} ({{card?.set | uppercase}})">
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-grid-item flexbox-spacer" aria-hidden="true"></div>
+      <div class="card-grid-item flexbox-spacer" aria-hidden="true"></div>
+      <div class="card-grid-item flexbox-spacer" aria-hidden="true"></div>
+
+    </div>
+  </div>
+
+  <div class="inner-align">
+    <p class="last-page">
+      The orcs’ banner sends a clear message: “You've reached the end of this&nbsp;search.”
+    </p>
+  </div>
+
+
+
+  <div data-component="search-controls" class="search-controls">
+    <div class="search-controls-inner">
+      <div class="search-controls-display-options">
+
+        <label for="unique" class="vh">Show</label>
+        <select name="unique" id="unique" title="Change how cards are found" class="select-n">
+          <option selected="selected" value="cards">Cards</option>
+          <option value="prints">All prints</option>
+          <option value="art">Unique art</option>
+        </select>
+
+        <label for="as">as</label>
+        <select name="as" id="as" title="Change how cards are displayed" class="select-n">
+          <option selected="selected" value="grid">Images</option>
+          <option value="checklist">Checklist</option>
+          <option value="text">Text Only</option>
+          <option value="full">Full</option>
+        </select>
+
+        <label for="order">sorted by</label>
+        <select name="order" id="order" title="Change how cards are sorted" class="select-n">
+          <option selected="selected" value="name">Name</option>
+          <option value="released">Release Date</option>
+          <option value="set">Set/Number</option>
+          <option value="rarity">Rarity</option>
+          <option value="color">Color</option>
+          <option value="usd">Price: USD</option>
+          <option value="tix">Price: TIX</option>
+          <option value="eur">Price: EUR</option>
+          <option value="cmc">Mana Value</option>
+          <option value="power">Power</option>
+          <option value="toughness">Toughness</option>
+          <option value="artist">Artist Name</option>
+          <option value="edhrec">EDHREC Rank</option>
+          <option value="review">Set Review</option>
+        </select>
+
+        <label title="Sort direction" for="dir">:</label>
+        <select name="dir" id="dir" title="Change sort direction, ascending or descending" class="select-n">
+          <option value="">Auto</option>
+          <option value="asc">Asc</option>
+          <option value="desc">Desc</option>
+        </select>
+      </div>
+
+
+      <div class="search-controls-pagination">
+        <span aria-hidden="true" class="button-n disabled icon-only">
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 4.438l-1.375-1.438-12.625 12 12.563 12 1.437-1.406-11.094-10.594 11.094-10.562zm12 0l-1.375-1.438-12.625 12 12.563 12 1.437-1.406-11.094-10.594 11.094-10.562zM2 3h-1.66v24h1.66z"></path>
+          </svg>
+          <b class="vh">First Page</b>
+        </span>
+        <span aria-hidden="true" class="button-n disabled">
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.625 3l-12.625 12 12.563 12 1.437-1.406-11.094-10.594 11.094-10.562z"></path>
+          </svg>
+          <b>Previous</b>
+        </span>
+        <span aria-hidden="true" class="button-n disabled">
+          <b>Next 60</b>
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.375 3l12.625 12-12.562 12-1.438-1.406 11.094-10.594-11.094-10.562z"></path>
+          </svg>
+        </span>
+        <span aria-hidden="true" class="button-n disabled icon-only">
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4.438l1.375-1.438 12.625 12-12.563 12-1.437-1.406 11.094-10.594-11.094-10.562zm-12 0l1.375-1.438 12.625 12-12.563 12-1.437-1.406 11.094-10.594-11.094-10.562zM28 3h1.66v24h-1.66z"></path>
+          </svg>
+          <b class="vh">Last Page</b>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <form data-component="search-controls-mobile"
+        action="/search" accept-charset="UTF-8"
+        method="get" class="search-controls-mobile">
+
+    <input type="hidden" name="q" id="q" value="chandra" autocomplete="off">
+    <div class="search-controls-mobile-inner">
+      <span aria-hidden="true" class="button-n disabled">
+        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.625 3l-12.625 12 12.563 12 1.437-1.406-11.094-10.594 11.094-10.562z"></path>
+        </svg>
+        <b>Previous</b>
+      </span>
+      <button type="button" class="button-n">
+        <svg focusable="false" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M93.633 93.812a1.985 1.985 0 0 1 0 2.805l-2.805 2.804a1.985 1.985 0 0 1-2.804 0L68.387 79.784a1.956 1.956 0 0 1-.454-.734c-4.027 2.941-8.972 4.7-14.344 4.7-13.46 0-24.375-10.91-24.375-24.372 0-13.46 10.914-24.375 24.375-24.375s24.375 10.914 24.375 24.375c0 5.371-1.757 10.316-4.699 14.344.27.094.52.235.735.453zM53.59 43.132c-8.973 0-16.25 7.273-16.25 16.25 0 8.973 7.273 16.246 16.25 16.246 8.973 0 16.25-7.273 16.25-16.246 0-8.977-7.277-16.25-16.25-16.25zM4.68 28.594h59.184v-6.281H4.68zm0-22.496v6.281h59.184V6.098zm0 38.707h22.102a30.283 30.283 0 0 1 4.664-6.281l-26.766.004zm0 9.938v6.28h18.383c-.028-.527-.078-1.046-.078-1.577 0-1.602.164-3.164.402-4.703z"></path>
+        </svg>
+        <b>View</b>
+      </button>
+      <span aria-hidden="true" class="button-n disabled">
+        <b>Next </b>
+        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.375 3l12.625 12-12.562 12-1.438-1.406 11.094-10.594-11.094-10.562z"></path>
+        </svg>
+      </span>
+    </div>
+
+    <div class="search-controls-mobile-options">
+
+      <div class="search-controls-mobile-option">
+        <label for="unique">Find</label>
+        <select name="unique" id="unique" title="Change how cards are found" class="select-n">
+          <option selected="selected" value="cards">Cards</option>
+          <option value="prints">All prints</option>
+          <option value="art">Unique art</option>
+        </select>
+      </div>
+
+      <div class="search-controls-mobile-option">
+        <label for="as">Display as</label>
+        <select name="as" id="as" title="Change how cards are displayed" class="select-n">
+          <option selected="selected" value="grid">Images</option>
+          <option value="checklist">Checklist</option>
+          <option value="text">Text Only</option>
+          <option value="full">Full</option>
+        </select>
+      </div>
+
+      <div class="search-controls-mobile-option">
+        <label for="order">Sorted by</label>
+        <select name="order" id="order" title="Change how cards are sorted" class="select-n">
+          <option selected="selected" value="name">Name</option>
+          <option value="released">Release Date</option>
+          <option value="set">Set/Number</option>
+          <option value="rarity">Rarity</option>
+          <option value="color">Color</option>
+          <option value="usd">Price: USD</option>
+          <option value="tix">Price: TIX</option>
+          <option value="eur">Price: EUR</option>
+          <option value="cmc">Mana Value</option>
+          <option value="power">Power</option>
+          <option value="toughness">Toughness</option>
+          <option value="artist">Artist Name</option>
+          <option value="edhrec">EDHREC Rank</option>
+          <option value="review">Set Review</option>
+        </select>
+      </div>
+
+      <div class="search-controls-mobile-option">
+        <label for="dir">Sort direction</label>
+        <select name="dir" id="dir" title="Change sort direction, ascending or descending" class="select-n">
+          <option value="">Auto</option>
+          <option value="asc">Asc</option>
+          <option value="desc">Desc</option>
+        </select>
+      </div>
+
+      <div class="search-controls-mobile-option">
+        <button type="submit" class="button-n primary-n">Search with these options</button>
+      </div>
+
+    </div>
+  </form>
+
+
+</div>

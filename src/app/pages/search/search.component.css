@@ -1,0 +1,415 @@
+#main {
+  min-height: 70vh;
+  background-color: #F5F6F7;
+}
+.search-controls {
+  display: none;
+  padding: 12px 2.5%;
+  background-color: #F3F5F8;
+  border-bottom: 1px solid rgba(99,68,150,0.1);
+}
+.search-controls-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.search-controls-display-options, .search-controls-pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.search-controls label {color: #634496;}
+.visuallyhidden, .vh {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+.select-n {
+  background-image: url(https://assets.scryfall.com/assets/icons/select-8593938….svg) !important;
+  padding-right: 22px;
+  background-position: right 8px center;
+  -webkit-background-size: 6px 10px;
+  background-size: 6px 10px;
+  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: bold !important;
+  text-decoration: none !important;
+  color: #551a8b;
+  background-color: #F9F7F5;
+  border: 1px solid rgba(85,26,139,0.5);
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 6%);
+  transition: color, border-color, background-color, fill;
+  transition-duration: 50ms;
+  transition-timing-function: linear;
+}
+.select-n option {
+  color: #551a8b !important;
+  cursor: pointer;
+}
+select+label:not(.vh) {
+  margin-left: 8px;
+}
+.search-controls label:not(.vh)+select, .search-controls select+label:not(.vh) {
+  margin-left: 8px;
+}
+.search-controls label {
+  color: #634496;
+  cursor: pointer;
+}
+.button-n.icon-only, .icon-only.select-n {
+  padding: 0 0;
+  min-width: 32px;
+}
+.button-n.disabled, .disabled.select-n, .button-n:disabled, .select-n:disabled {
+  cursor: not-allowed !important;
+  user-select: none;
+  color: rgba(0,0,0,0.25);
+  border-color: rgba(0,0,0,0.25);
+  background-color: #F5F6F7;
+}
+.button-n.icon-only, .icon-only.select-n {
+  padding: 0 0;
+  min-width: 32px;
+}
+.button-n svg, .select-n svg {
+  width: 14px;
+  height: 14px;
+}
+.button-n.icon-only svg, .icon-only.select-n svg {
+  margin: 0 auto 0 auto !important;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+b, i {
+  font-style: inherit;
+}
+.button-n+.button-n, .select-n+.button-n, .button-n+.select-n, .select-n+.select-n {
+  margin: 0 0 0 6px;
+}
+.button-n b, .select-n b {
+  display: flex;
+  flex-flow: row nowrap;
+  color: inherit;
+  font-weight: inherit;
+}
+.search-info {
+    background-color: #F6F4FA;
+    padding: 8px 2.5%;
+    font-size: 12px;
+    color: #535353;
+    border-bottom: 1px solid rgba(99,68,150,0.1);
+    text-align: center;
+    display: block;
+}
+.search-info p {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.search-info strong {font-weight: 500;color: #634496;}
+.card-grid {
+  display: block;
+  width: 100%;
+  padding: 0 2.5%;
+  margin: 20px 0 15px 0;
+}
+.card-grid-inner {
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.card-grid-item {
+  page-break-after: auto;
+  page-break-before: auto;
+  page-break-inside: avoid;
+  position: relative;
+  display: block;
+  width: 49.25%;
+  margin: 0 0 9px 0;
+}
+.card-grid-item-card {
+  display: block;
+  position: relative;
+  padding-bottom: 139.344262295%;
+  width: 100%;
+  height: 0;
+  perspective: 2000px;
+  cursor: pointer;
+}
+.card-grid-item-invisible-label {
+  z-index: 1000;
+  color: transparent;
+  font-size: 14px;
+  position: absolute;
+  padding: 6.75% 0 0 8%;
+  width: 100%;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+.card-grid-item-card-faces {
+  z-index: 5;
+  transform-style: preserve-3d;
+  transition: transform 200ms;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.card-grid-item-card-front {transform: rotateY(0deg);}
+
+.card-grid-item-card-front, .card-grid-item-card-back {
+  z-index: 5;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.card-grid-item-card-back {
+  transform: rotateY(180deg);
+}
+.card-grid-item-card-front, .card-grid-item-card-back {
+  z-index: 5;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.card-grid .card {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  box-shadow: 1px 1px 6px rgb(0 0 0 / 45%);
+  background-color: transparent;
+  z-index: 5;
+}
+img.card {
+  -webkit-border-radius: 4.75% / 3.5%;
+  border-radius: 4.75% / 3.5%;
+  background-image: repeating-linear-gradient(-55deg, #DDD, #DDD 5px, #CCC 5px, #CCC 10px);
+  color: #000;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+  text-align: center;
+}
+.card-grid-item-card-faces.flipped {
+  transition: transform 750ms;
+  transform: rotateY(-180deg);
+}
+.card-grid-item-card-faces {
+  z-index: 5;
+  transform-style: preserve-3d;
+  transition: -webkit-transform 200ms;
+  transition: transform 200ms;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.card-grid-item-transform-button.spooky {
+  border-color: #FFF;
+  background-color: #343242;
+}
+.card-grid-item-transform-button {
+  position: absolute;
+  opacity: 0.60;
+  background: white;
+  border-radius: 100%;
+  border: 2px solid #343242;
+  display: block;
+  height: 44px;
+  width: 44px;
+  padding: 7px;
+  cursor: pointer;
+  top: 26%;
+  left: 75%;
+  transform-style: flat;
+  transition: background-color 200ms linear, opacity 50ms linear;
+  z-index: 1000;
+  transform: translateZ(0.01px);
+}
+.card-grid-item-transform-button:hover, .card-grid-item-transform-button:active {opacity: 1.0;}
+.card-grid-item-transform-button path {transition: fill 200ms linear;}
+.card-grid-item.flexbox-spacer {margin: 0 !important;height: 1px;}
+.card-grid-item {
+  page-break-after: auto;
+  page-break-before: auto;
+  page-break-inside: avoid;
+  position: relative;
+  display: block;
+}
+.inner-align {
+  clear: both;
+  margin: 0 auto;
+  max-width: 1000px;
+  position: relative;
+}
+
+.last-page {
+  display: block;
+  color: #AEAEAE;
+  font-size: 12px;
+  font-style: italic;
+  margin: 0 auto 25px auto;
+  max-width: 30em;
+  text-align: center;
+}
+.inner-align:after {
+  clear: both;
+}
+
+.inner-align:before, .inner-align:after {
+  content: " ";
+  display: table;
+}
+
+
+
+
+
+@media screen and (min-width: 920px) {
+  .card-grid-item {
+    width: 24.5%;
+  }
+}
+@media screen and (min-width: 660px) {
+  .card-grid-item {
+    width: 32.75%;
+  }
+}
+@media screen and (min-width: 860px) {
+  .search-controls {
+    display: block;
+  }
+
+}
+@media screen and (min-width: 760px) {
+  .search-info {
+    padding: 10px 2.5%;
+    font-size: 14px;
+    text-align: left;
+  }
+}
+
+/* =============================== Beginning of mobile control classes =============================== */
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.search-controls-mobile {
+  display: block;
+  padding: 12px 2.5%;
+  background-color: #F6F4FA;
+  border-bottom: 1px solid rgba(99,68,150,0.1);
+}
+.search-controls-mobile-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.button-n svg:first-child, .select-n svg:first-child {
+  margin: 0 6px 0 -1px;
+}
+.button-n svg, .select-n svg {
+  width: 14px;
+  height: 14px;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+:not(svg) {transform-origin: 0 0;}
+
+.button-n+.button-n, .select-n+.button-n, .button-n+.select-n, .select-n+.select-n {
+  margin: 0 0 0 6px;
+}
+.button-n svg, .select-n svg {
+  width: 14px;
+  height: 14px;
+}
+.button-n path, .select-n path, .button-n g, .select-n g {
+  fill: #634496;
+}
+.button-n svg:first-child, .select-n svg:first-child {
+  margin: 0 6px 0 -1px;
+}
+
+.button-n svg:last-child, .select-n svg:last-child {
+  margin: 0 -3px 0 6px;
+}
+.button-n svg, .select-n svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+.search-controls-mobile-options {
+  border-top: 1px dashed rgba(99,68,150,0.3);
+  padding: 16px 0 4px 0;
+  margin: 12px 0 0 0;
+  display: none;
+}
+.search-controls-mobile-option {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 550px;
+}
+.search-controls-mobile label {
+  width: 35%;
+  text-align: right;
+  margin: 0 2.5% 0 0;
+  cursor: pointer;
+}
+.search-controls-mobile select {width: 50%;}
+.select-n option {color: #551a8b !important;cursor: pointer;}
+.search-controls-mobile-option+.search-controls-mobile-option {margin-top: 8px;}
+
+@media screen and (min-width: 860px) {
+  .search-controls-mobile {
+    display: none !important;
+  }
+
+}
+
+
+
+
+/* ================================== End of mobile control classes ================================== */
+
+
+
