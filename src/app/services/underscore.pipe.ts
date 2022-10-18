@@ -6,7 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class UnderscorePipe implements PipeTransform {
 
   transform(value: any): any {
-    if(value.includes('_')) return value.replace('_', ' ');
+    if(value) {
+      return value.replace('_', ' ');
+    }
     return value;
   }
 
