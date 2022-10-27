@@ -1,9 +1,10 @@
-import {Component,  OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CardService } from '../../services/card.service';
 import { Card } from '../../models/card';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Sets } from '../../models/sets';
+
 
 @Component({
   selector: 'app-card',
@@ -17,13 +18,17 @@ export class CardComponent implements OnInit, OnDestroy {
   card: Card | null = null;
   set: Sets | null = null;
   searchValue: string = '';
+  oracleText: string = '';
   subscription: Subscription = new Subscription();
   setSubscription: Subscription = new Subscription();
 
 
+  // TODO finish fixing card text elements.
+
   ngOnInit(): void {
     // Grabs the "name" parameter from the url route and stores it in a string to fetch the correct card.
     this.searchValue = this.route.snapshot.paramMap.get("name") as string;
+
 
     // A simple condition statement to control which fetch function to call depending on what route is active.
     // This allows the random page to work differently than the search display functionality while still reusing the component.
@@ -47,8 +52,10 @@ export class CardComponent implements OnInit, OnDestroy {
   // A function to fetch the card from the user entered search value to store and display.
   getCard() {
     this.subscription = this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
-      this.getSetData(card);
       this.card = card;
+      this.getSetData(card);
+      this.formatText(card.oracle_text);
+
     });
   }
 
@@ -57,6 +64,9 @@ export class CardComponent implements OnInit, OnDestroy {
     this.subscription = this.cardService.getRandomCard().subscribe((card) => {
       this.card = card;
       this.getSetData(card);
+      this.formatText(card.oracle_text);
+      console.log('Oracle text: ' + this.oracleText);
+
     });
   }
 
@@ -64,6 +74,38 @@ export class CardComponent implements OnInit, OnDestroy {
     this.setSubscription = this.cardService.getSetData(card?.set_id).subscribe((setData) => {
       this.set = setData;
     });
+  }
+
+
+  public replaceAll(str: string, find: string, replace: string): string {
+    return str.replace(new RegExp(find,'g'), replace);
+  }
+
+  convertManaSymbol() {
+
+  }
+
+  formatText(text: string) {
+
+    let cardTexts = [];
+    let cardAbilities = [];
+
+
+    //   \{[BURGWT0-9]\}{1,6}.+?\. ==> regex that collects all mana/tap abilities.
+    //   ^.*?[.!?](?:\s|$)         ==> regex that returns the first sentence.
+
+    // (?<![a-zA-Z0-9])(Haste|Coven|Trample|Flash|Flying|Double Strike|Defender|Deathtouch|Reach).+?\.
+
+    cardAbilities = text.split(/\{[BURGWT0-9]{1,6}.+?\./);
+
+    let firstSentence = text.split(/^.*?[.!?](?:\s|$)/);
+    let italics = text.substring(text.indexOf('(') - 1, text.indexOf(')') + 1);
+
+
+    console.log('First: ' + firstSentence);
+    console.log('Italics: ' + italics);
+    console.log('abilities: ' + cardAbilities);
+    this.oracleText = text.replace('\n', '\n');
   }
 
 }
