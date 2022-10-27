@@ -19,9 +19,9 @@ import { FormatPipe } from './services/format.pipe';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'random', component: RandomComponent },
-  { path: 'card/:name', component: CardsComponent },
   { path: 'card/random', component: RandomComponent },
-  { path: 'cards/search', component: SearchComponent },
+  { path: 'card/search', component: SearchComponent },
+  { path: 'card/:name', component: CardsComponent },
 
   { path: '**', component: HomeComponent }
 ];
