@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Card } from '../../models/card';
 import { CardService } from '../../services/card.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Subscription} from "rxjs";
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   subscription5: Subscription = new Subscription();
   subscription6: Subscription = new Subscription();
   subscription7: Subscription = new Subscription();
+  pageCheckSubscription: Subscription = new Subscription();
 
   searchValue: string = '';
 
@@ -47,6 +48,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription5.unsubscribe();
     this.subscription6.unsubscribe();
     this.subscription7.unsubscribe();
+    this.pageCheckSubscription.unsubscribe();
+
+    this.cardOne = null;
+    this.cardTwo = null;
+    this.cardThree = null;
+    this.cardFour = null;
+    this.cardFive = null;
+    this.cardSix = null;
+    this.cardSeven = null;
   }
 
   // TODO implement better solution to fetching collage cards.
@@ -64,28 +74,45 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   /*
    * This function runs upon form submission and formats the user entered search value to comply with API formatting requirements.
-   * Then it updates the route to the enter value and redirects the user to the correct card display.
-   * It replaces all spaces in the string with the plus character.
+   * Then it updates the route to the entered value and redirects the user to the correct card display.
    */
   search() {
     if(this.searchValue) {
       if (this.searchValue?.includes(' ')) {
         this.searchValue = this.replaceAll(this.searchValue,' ','+');
-        this.router.navigate(['/card/' + this.searchValue]).then(() => {
-          window.location.reload();
-        });
+        this.checkResponseSize(this.searchValue);
       } else {
-        this.router.navigate(['/card/' + this.searchValue]).then(() => {
-          window.location.reload();
-        });
+        this.checkResponseSize(this.searchValue);
       }
     }
   }
+
+
+  // This function checks the number of cards in the API response and redirects the user accordingly.
+  checkResponseSize(searchValue: string) {
+    this.pageCheckSubscription = this.cardService.checkResponse(searchValue)
+      .subscribe((totalCards) => {
+        if(totalCards > 1) {
+          this.router.navigate(['card/search/' + this.searchValue]).then(() => {
+            window.location.reload();
+            window.scrollTo(0, 0);
+          });
+        } else {
+          this.router.navigate(['/card/' + this.searchValue]).then(() => {
+            window.location.reload();
+            window.scrollTo(0, 0);
+          });
+        }
+    });
+  }
+
+
 
   // This function takes in a card name as a string and redirects the user to the corresponding route, then refreshes the page.
   redirect(name: string | undefined) {
     this.router.navigate(['/card/' + name]).then(() => {
       window.location.reload();
+      window.scrollTo(0, 0);
     });
   }
 
@@ -97,6 +124,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   // A simple function to reload the page when clicking the home page logo.
   reload() {
     window.location.reload();
+    window.scrollTo(0, 0);
   }
 
 }
