@@ -27,8 +27,8 @@ export class CardService {
 
 
   // A function that fetches the user search value if the value returned by checkResponse() is > 1.
-  getSearchCards(searhValue: string) {
-    return this.http.get<CardLists>(`${this.scryfallUrl}/cards/search?q=${searhValue}`)
+  getSearchCards(searchValue: string) {
+    return this.http.get<CardLists>(`${this.scryfallUrl}/cards/search?q=${searchValue}`)
       .pipe(switchMap((res) => {
         return of(res.data);
       })
