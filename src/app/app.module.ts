@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'random', component: RandomComponent },
   { path: 'card/random', component: RandomComponent },
-  { path: 'card/search', component: SearchComponent },
+  { path: 'card/search/:searchValue', component: SearchComponent },
   { path: 'card/:name', component: CardsComponent },
 
   { path: '**', component: HomeComponent }
