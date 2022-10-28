@@ -115,7 +115,7 @@ export interface Card {
   }
 }
 
-export interface Prints {
+export interface CardLists {
   object: string;
   total_cards: number;
   has_more: boolean;
