@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   cards: Card[] = [];
   searchValue: string = '';
+  totalCards: number | null = null;
   subscription: Subscription = new Subscription();
 
   constructor(private cardService: CardService, private route: ActivatedRoute, private router: Router) { }
@@ -21,6 +22,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.searchValue = this.route.snapshot.paramMap.get('searchValue') as string;
     this.getSearchCards();
+    this.getListSize();
   }
 
   // Resetting all variables and subscriptions to avoid memory leaks.
@@ -34,6 +36,12 @@ export class SearchComponent implements OnInit, OnDestroy {
   getSearchCards() {
     this.subscription = this.cardService.getSearchCards(this.searchValue).subscribe((card) => {
       this.cards = card;
+    });
+  }
+
+  getListSize() {
+    this.cardService.checkResponse(this.searchValue).subscribe((size) => {
+      this.totalCards = size;
     });
   }
 
