@@ -96,11 +96,13 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.router.navigate(['card/search/' + this.searchValue]).then(() => {
             window.location.reload();
             window.scrollTo(0, 0);
+            this.pageCheckSubscription.unsubscribe();
           });
         } else {
           this.router.navigate(['/card/' + this.searchValue]).then(() => {
             window.location.reload();
             window.scrollTo(0, 0);
+            this.pageCheckSubscription.unsubscribe();
           });
         }
     });
