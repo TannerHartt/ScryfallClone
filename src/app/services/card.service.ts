@@ -25,6 +25,14 @@ export class CardService {
     return this.http.get<Card>(`${this.scryfallUrl}/cards/named?fuzzy=${searchValue}`);
   }
 
+  getPrintData(printsURI: string) {
+    return this.http.get<CardLists>(`${printsURI}`)
+      .pipe(switchMap((res) => {
+        return of(res.data);
+      })
+    );
+  }
+
 
   // A function that fetches the user search value if the value returned by checkResponse() is > 1.
   getSearchCards(searchValue: string) {
@@ -35,7 +43,7 @@ export class CardService {
     );
   }
 
-  // A simple function that checks and returns the number of cards returned from the API.
+  // This function checks and returns the number of cards returned from the API.
   checkResponse(searchValue: string) {
     return this.http.get<CardLists>(`${this.scryfallUrl}/cards/search?q=${searchValue}`)
       .pipe(switchMap((res) => {
@@ -43,6 +51,8 @@ export class CardService {
       })
     );
   }
+
+
 
 
 
