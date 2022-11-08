@@ -17,8 +17,11 @@ export class CardComponent implements OnInit, OnDestroy {
 
   card: Card | null = null;
   set: Sets | null = null;
+  prints: Card[] = [];
   searchValue: string = '';
   oracleText: string = '';
+
+  printsSubscription: Subscription = new Subscription();
   subscription: Subscription = new Subscription();
   setSubscription: Subscription = new Subscription();
 
@@ -53,6 +56,8 @@ export class CardComponent implements OnInit, OnDestroy {
   getCard() {
     this.subscription = this.cardService.getSearchValue(this.searchValue).subscribe((card) => {
       this.card = card;
+
+      this.getCardPrints(card.prints_search_uri);
       this.getSetData(card);
       this.formatText(card.oracle_text);
 
@@ -73,6 +78,12 @@ export class CardComponent implements OnInit, OnDestroy {
   getSetData(card: Card) {
     this.setSubscription = this.cardService.getSetData(card?.set_id).subscribe((setData) => {
       this.set = setData;
+    });
+  }
+
+  getCardPrints(printURI: string) {
+    this.printsSubscription = this.cardService.getPrintData(printURI).subscribe((card) => {
+      this.prints = card;
     });
   }
 
