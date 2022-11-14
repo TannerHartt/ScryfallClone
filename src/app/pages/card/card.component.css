@@ -251,6 +251,7 @@
   position: relative;
   border-radius: 2px 2px 0 0;
   text-decoration: none;
+  
 }
 
 .prints-current-set-symbol {
@@ -307,6 +308,17 @@ table { border-collapse: collapse;border-spacing: 0; }
   position: relative;
   font-size: 12px;
 }
+.prints-table svg {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 5px;
+  left: -9px;
+  background: #FDFDFD;
+  border: 1px solid #cdcdcd;
+  border-radius: 100%;
+  padding: 3px 3px 3px 3px;
+}
 
 .prints-table th:first-child>a, .prints-table th:first-child>span {
   padding-left: 8px;
@@ -337,7 +349,10 @@ table { border-collapse: collapse;border-spacing: 0; }
   overflow: hidden;
   border-left: 1px solid #cdcdcd;
 }
-td {vertical-align: middle;}
+td {
+  vertical-align: middle;
+  padding: 7px 4px 6px 13px;
+}
 td a {
   text-decoration: none;
   color: #343242;
@@ -408,6 +423,16 @@ b, i {
   text-align: right !important;
   white-space: nowrap !important;
 }
+.currency-tix {
+  color: #DA4100 !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+.currency-eur {
+  color: #8B3F8A !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+}
 .button-n span.price, .select-n span.price {
   margin-left: auto;
   font-size: 14px;
@@ -422,6 +447,16 @@ b, i {
 }
 li {
   list-style-type: none;
+}
+
+.rarity-uncommon {
+  fill: #6C848C;
+}
+.rarity-common {
+  fill: #16161D;
+}
+.rarity-rare {
+  fill: #C19C00;
 }
 
 

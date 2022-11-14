@@ -46,6 +46,8 @@ export class NavComponent implements OnInit, OnDestroy {
     }
   }
 
+
+
   public replaceAll(str: string, find: string, replace: string) {
     return str.replace(new RegExp(find,'g'), replace);
   }

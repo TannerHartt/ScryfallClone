@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Card, CardLists } from '../models/card';
 import { Sets } from '../models/sets';
 import { of, switchMap } from 'rxjs';
+import { SymbolDto } from '../models/symbols';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,7 @@ export class CardService {
       })
     );
   }
+
 
 
   // A function that fetches the user search value if the value returned by checkResponse() is > 1.
