@@ -46,6 +46,7 @@ export class CardComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.setSubscription.unsubscribe();
+    this.printsSubscription.unsubscribe();
     this.set = null;
     this.card = null;
     this.searchValue = '';
@@ -68,6 +69,8 @@ export class CardComponent implements OnInit, OnDestroy {
   getRandomCard() {
     this.subscription = this.cardService.getRandomCard().subscribe((card) => {
       this.card = card;
+
+      this.getCardPrints(card.prints_search_uri);
       this.getSetData(card);
       this.formatText(card.oracle_text);
       console.log('Oracle text: ' + this.oracleText);
@@ -92,10 +95,6 @@ export class CardComponent implements OnInit, OnDestroy {
     return str.replace(new RegExp(find,'g'), replace);
   }
 
-  convertManaSymbol() {
-
-  }
-
   formatText(text: string) {
 
     let cardTexts = [];
@@ -107,16 +106,17 @@ export class CardComponent implements OnInit, OnDestroy {
 
     // (?<![a-zA-Z0-9])(Haste|Coven|Trample|Flash|Flying|Double Strike|Defender|Deathtouch|Reach).+?\.
 
-    cardAbilities = text.split(/\{[BURGWT0-9]{1,6}.+?\./);
+    let temp = text;
+    cardAbilities = temp.split(/\{[BURGWT0-9].+?\.+/gm);
+    console.log('abilities: ' + cardAbilities);
+    temp.matchAll(/\{[BURGWT0-9].+?\.+/gm);
+
 
     let firstSentence = text.split(/^.*?[.!?](?:\s|$)/);
     let italics = text.substring(text.indexOf('(') - 1, text.indexOf(')') + 1);
 
 
     console.log('First: ' + firstSentence);
-    console.log('Italics: ' + italics);
-    console.log('abilities: ' + cardAbilities);
-    this.oracleText = text.replace('\n', '\n');
   }
 
 }
