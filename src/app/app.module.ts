@@ -15,6 +15,7 @@ import { LanguagePipe } from './services/language.pipe';
 import { SearchComponent } from './pages/search/search.component';
 import { UnderscorePipe } from './services/underscore.pipe';
 import { FormatPipe } from './services/format.pipe';
+import { LoginComponent } from './user/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
     SearchComponent,
     UnderscorePipe,
     FormatPipe,
+    LoginComponent,
   ],
     imports: [
         BrowserModule,
