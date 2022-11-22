@@ -1,0 +1,141 @@
+.session {
+  background: #141e30;
+  background: linear-gradient(to top, #5F4F66, #343242);
+  padding: 40px 0 5% 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.session-logo {
+  width: 96px;
+  height: 96px;
+  margin: 0 0 -40px 0;
+  z-index: 51;
+}
+
+.session-form {
+  position: relative;
+  background-color: #1E2A38;
+  border: 2px solid #1E2A38;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+  max-width: 320px;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 26px 0;
+  z-index: 50;
+}
+.session-form input {
+  display: block;
+  width: 90%;
+  margin: 0 auto 0 auto;
+  border-radius: 2px;
+  font-size: 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background-color: rgba(0,0,0,0.1);
+  color: #FFF;
+  padding: 10px 14px 10px 14px;
+  box-shadow: 0 0 2px rgb(0 0 0 / 50%);
+  line-height: 1.25;
+  text-align: center;
+  height: 42px;
+}
+.session-form-instructions {
+  margin: 12px 12px 16px 12px;
+  text-align: center;
+  color: #FDFDFD;
+  line-height: 1.33;
+}
+.visuallyhidden, .vh {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+.session-form .button {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 14px 0 14px;
+  margin: 10px auto 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+  height: 42px;
+  border: 1px solid white;
+  background-color: rgba(255,255,255,0.87);
+  width: 90%;
+  color: #16161D;
+}
+.session-form .button.icon-last svg {
+  margin-left: 4px;
+}
+
+.session-form .button svg {
+  margin: 1px 0 0 0;
+  width: 15px;
+  height: 15px;
+}
+.session-form .button path {
+  fill: #000;
+}
+.button-spinner {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 40px;
+}
+.button-spinner span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: #16161D;
+  animation-name: button-spinner-pop;
+  animation-duration: 325ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.session-form .button.muted {
+  background-color: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.session-form .button.icon-last svg {
+  margin-left: 4px;
+}
+
+.session-form .button svg {
+  margin: 1px 0 0 0;
+  width: 15px;
+  height: 15px;
+}
+.session-form .button.muted path, .session-form .button.muted g {
+  fill: #FFF;
+}
+.session-form-instructions {
+  margin: 12px 12px 16px 12px;
+  text-align: center;
+  color: #FDFDFD;
+  line-height: 1.33;
+}
+
+@media screen and (min-width: 500px) {
+  .session {
+    justify-content: center;
+    padding-top: 0;
+  }
+}
