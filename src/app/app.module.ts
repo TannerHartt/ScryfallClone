@@ -4,6 +4,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
+
+import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { CardsComponent } from './pages/cards/cards.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -16,10 +18,13 @@ import { SearchComponent } from './pages/search/search.component';
 import { UnderscorePipe } from './services/underscore.pipe';
 import { FormatPipe } from './services/format.pipe';
 import { LoginComponent } from './user/login/login.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'random', component: RandomComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'card/random', component: RandomComponent },
   { path: 'card/search/:searchValue', component: SearchComponent },
   { path: 'card/:name', component: CardsComponent },
@@ -43,12 +48,17 @@ const routes: Routes = [
     LoginComponent,
   ],
     imports: [
-        BrowserModule,
-        HttpClientModule,
-        RouterModule.forRoot(routes),
-        FormsModule,
+      BrowserModule,
+      HttpClientModule,
+      RouterModule.forRoot(routes),
+      AngularFireModule.initializeApp(environment.firebase),
+      AngularFireAuthModule,
+      FormsModule,
     ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+//  AngularFireModule.initializeApp(environment.firebase),
+//     AngularFireAuthModule,
