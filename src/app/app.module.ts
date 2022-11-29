@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'random', component: RandomComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'card/random', component: RandomComponent },
   { path: 'card/search/:searchValue', component: SearchComponent },
   { path: 'card/:name', component: CardsComponent },
