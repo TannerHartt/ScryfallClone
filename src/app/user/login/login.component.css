@@ -15,16 +15,16 @@
   margin: 0 0 -40px 0;
   z-index: 51;
 }
+span, a {
+  text-decoration: none;
+}
 
 .session-form {
   position: relative;
   background-color: #1E2A38;
   border: 2px solid #1E2A38;
-  border-radius: 2px;
-  -webkit-box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
   box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
   max-width: 320px;
-  width: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -36,22 +36,26 @@
   display: block;
   width: 90%;
   margin: 0 auto 0 auto;
-  border-radius: 2px;
   font-size: 16px;
   border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 2px;
   background-color: rgba(0,0,0,0.1);
   color: #FFF;
-  padding: 10px 14px 10px 14px;
   box-shadow: 0 0 2px rgb(0 0 0 / 50%);
   line-height: 1.25;
   text-align: center;
   height: 42px;
 }
+
 .session-form-instructions {
   margin: 12px 12px 16px 12px;
+  width: 90%;
   text-align: center;
   color: #FDFDFD;
   line-height: 1.33;
+  font: 15px Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-weight: normal;
 }
 .visuallyhidden, .vh {
   border: 0 !important;
@@ -69,18 +73,26 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  padding: 0 14px 0 14px;
   margin: 10px auto 0 auto;
   border-radius: 2px;
   box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
   height: 42px;
-  border: 1px solid white;
-  background-color: rgba(255,255,255,0.87);
   width: 90%;
-  color: #16161D;
+  cursor: pointer;
 }
+.padding {padding: 0 14px 0 14px;border: 1px solid rgba(255,255,255,0.2);}
+
 .session-form .button.icon-last svg {
   margin-left: 4px;
+}
+.session-form .button:hover, .session-form .button:focus, .session-form .button.focus {
+  color: #343242;
+  background-color: #FFF;
+}
+.session-form .button.muted {
+  background-color: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.75);
+  font: 15px Lato, Arial, Helvetica, sans-serif;
 }
 
 .session-form .button svg {
@@ -91,6 +103,23 @@
 .session-form .button path {
   fill: #000;
 }
+
+.session-form hr {
+  height: 1px;
+  width: 90%;
+  margin: 20px 0 10px 0;
+  background-color: rgba(255,255,255,0.25);
+  border: 0 solid #1E2A38;
+}
+
+.session-form .button.icon-last svg {
+  margin-left: 4px;
+}
+
+.session-form .button.muted path, .session-form .button.muted g {
+  fill: #FFF;
+}
+
 .button-spinner {
   display: flex;
   flex-flow: row nowrap;
@@ -109,29 +138,7 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.session-form .button.muted {
-  background-color: rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.75);
-  border: 1px solid rgba(255,255,255,0.05);
-}
-.session-form .button.icon-last svg {
-  margin-left: 4px;
-}
 
-.session-form .button svg {
-  margin: 1px 0 0 0;
-  width: 15px;
-  height: 15px;
-}
-.session-form .button.muted path, .session-form .button.muted g {
-  fill: #FFF;
-}
-.session-form-instructions {
-  margin: 12px 12px 16px 12px;
-  text-align: center;
-  color: #FDFDFD;
-  line-height: 1.33;
-}
 
 @media screen and (min-width: 500px) {
   .session {
@@ -139,3 +146,4 @@
     padding-top: 0;
   }
 }
+
