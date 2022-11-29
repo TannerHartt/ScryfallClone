@@ -8,7 +8,7 @@ body {
   height: 100vh;
   overflow-x: hidden;
   font-size: 15px;
-  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-family: Lato, Arial, Helvetica, sans-serif;
 }
 .vh {
   border: 0 !important;
