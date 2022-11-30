@@ -23,6 +23,7 @@ span, a {
   position: relative;
   background-color: #1E2A38;
   border: 2px solid #1E2A38;
+  border-radius: 2px;
   box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
   max-width: 320px;
   display: flex;
@@ -31,6 +32,7 @@ span, a {
   align-items: center;
   padding: 40px 0 26px 0;
   z-index: 50;
+  width: 100%;
 }
 .session-form input {
   display: block;
