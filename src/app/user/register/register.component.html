@@ -16,7 +16,7 @@
   </svg>
 
 
-  <form method="post" id="registration-form" class="session-form">
+  <form [formGroup]="registerForm" (ngSubmit)="register()" method="post" id="registration-form" class="session-form">
     <input type="hidden" autocomplete="off">
     <input name="utf8" type="hidden" value="✓" autocomplete="off">
     <input type="hidden" name="invite" id="invite" autocomplete="off">
@@ -24,9 +24,11 @@
       Create your Scryfall Account
     </h1>
     <label for="email" class="vh">Email</label>
-    <input type="email" placeholder="Enter your email address" name="email" id="email" autocomplete="on" spellcheck="false" required="required" maxlength="256">
+    <input [formControl]="email" type="email" placeholder="Enter your email address" name="email" id="email" autocomplete="on" spellcheck="false" required="required" maxlength="256">
+    <label for="password" class="vh">Password</label>
+    <input [formControl]="password" type="password" placeholder="Enter a password" name="email" id="password" autocomplete="on" spellcheck="false" required="required" maxlength="256">
     <label for="username" class="vh">Username</label>
-    <input type="text" placeholder="Pick a username" name="username" id="username" autocomplete="off" spellcheck="false" required="required" maxlength="15">
+    <input [formControl]="username" type="text" placeholder="Pick a username" name="username" id="username" autocomplete="off" spellcheck="false" required="required" maxlength="15">
     <p class="session-form-detail-text">
       scryfall.com/@
       <i>username</i>
