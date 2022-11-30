@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 
@@ -51,12 +51,13 @@ const routes: Routes = [
     RegisterComponent,
   ],
     imports: [
-      BrowserModule,
-      HttpClientModule,
-      RouterModule.forRoot(routes),
-      AngularFireModule.initializeApp(environment.firebase),
-      AngularFireAuthModule,
-      FormsModule,
+        BrowserModule,
+        HttpClientModule,
+        RouterModule.forRoot(routes),
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
