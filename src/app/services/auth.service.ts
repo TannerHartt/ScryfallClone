@@ -46,6 +46,5 @@ export class AuthService {
       $event.preventDefault();
     }
     await this.auth.signOut(); // Call the firebase given sign out method
-
   }
 }
