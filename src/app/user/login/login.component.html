@@ -4,7 +4,7 @@
 <!--  <div aria-hidden="true" class="session-orbit session-orbit-3"></div>-->
 <!--  <div aria-hidden="true" class="session-orbit session-orbit-4"></div>-->
 
-  <svg class="session-logo" focusable="false" aria-hidden="true" width="460" height="460" viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+  <svg routerLink="/" class="session-logo" focusable="false" aria-hidden="true" width="460" height="460" viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(-60 -58)" fill="none" fill-rule="evenodd">
       <circle fill="#000" opacity=".09" cx="290" cy="288" r="230"></circle>
       <path fill="#BC979D" d="M279.508 112.547l-.028 361.84 43.137 6.808 56.715-13.23 28.54-72.547-28.044-178.926-31.887-113.004"></path>
@@ -25,12 +25,12 @@
 
     <label for="email" class="vh">Email</label>
     <input type="email" [(ngModel)]="credentials.email" required #email=ngModel name="email" id="email" placeholder="Email address" autocomplete="on" maxlength="88">
-    <p class="warning-text" *ngIf="email.errors && email.touched && email.dirty">Email is invalid!</p>
+    <p class="warning-text" *ngIf="email.errors && email.touched">Email is invalid!</p>
 
 
     <label for="password" class="vh">Password</label>
     <input type="password" [(ngModel)]="credentials.password" required #password=ngModel name="password" id="password" placeholder="Password" autocomplete="on" maxlength="24" minlength="5">
-    <p class="warning-text" *ngIf="password.errors && password.touched && password.dirty">Password is invalid!</p>
+    <p class="warning-text" *ngIf="password.errors && password.touched">Password is invalid!</p>
 
     <button type="submit" class="button padding icon-last">
       <span>Continue</span>

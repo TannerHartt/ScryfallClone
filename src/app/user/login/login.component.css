@@ -14,6 +14,7 @@
   height: 96px;
   margin: 0 0 -40px 0;
   z-index: 51;
+  cursor: pointer;
 }
 span, a {
   text-decoration: none;
@@ -139,6 +140,11 @@ span, a {
   animation-duration: 325ms;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+.warning-text {
+  color: #FDFDFD;
+  margin-top: 3px;
 }
 
 
