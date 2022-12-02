@@ -37,7 +37,7 @@ span, a {
 .session-form input {
   display: block;
   width: 90%;
-  margin: 0 auto 0 auto;
+  margin: 5px auto 0 auto;
   font-size: 16px;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 2px;
