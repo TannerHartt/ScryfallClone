@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../models/user';
@@ -25,16 +25,17 @@ export class RegisterComponent {
 
 
   async register() {
+    console.log(this.registerForm);
     try {
       // Calls the firebase provided create user function and passes in the values entered by the user in the register form.
       await this.auth.createUser(this.registerForm.value as User)
         .then(() => {
           setTimeout(() => {
-            this.router.navigate(['/'])
+            this.router.navigate(['/login'])
               .then(() => {
                 window.location.reload();
               });
-          }, 3000);
+          }, 1000);
         });
     } catch (e) { // If an error occurs, display relevant info to the user indicating an error occurred.
       console.log(e);
