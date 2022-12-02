@@ -21,12 +21,14 @@ import { LoginComponent } from './user/login/login.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { RegisterComponent } from './user/register/register.component';
+import { DashboardComponent } from './user/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'random', component: RandomComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'settings', component: DashboardComponent },
   { path: 'card/random', component: RandomComponent },
   { path: 'card/search/:searchValue', component: SearchComponent },
   { path: 'card/:name', component: CardsComponent },
@@ -49,6 +51,7 @@ const routes: Routes = [
     FormatPipe,
     LoginComponent,
     RegisterComponent,
+    DashboardComponent,
   ],
     imports: [
         BrowserModule,
