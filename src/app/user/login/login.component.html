@@ -15,14 +15,23 @@
     </g>
   </svg>
 
-  <form accept-charset="UTF-8" method="post" class="session-form">
+  <form #loginForm="ngForm" (ngSubmit)="login()" accept-charset="UTF-8" method="post" class="session-form">
     <input name="utf8" type="hidden" value="✓" autocomplete="off">
     <input type="hidden" autocomplete="off">
     <h1 class="session-form-instructions">
       Enter your email address to sign&nbsp;in to&nbsp;Scryfall.
     </h1>
+
+
     <label for="email" class="vh">Email</label>
-    <input type="email" name="email" id="email" placeholder="Email address" autocomplete="on" maxlength="256">
+    <input type="email" [(ngModel)]="credentials.email" required #email=ngModel name="email" id="email" placeholder="Email address" autocomplete="on" maxlength="88">
+    <p class="warning-text" *ngIf="email.errors && email.touched && email.dirty">Email is invalid!</p>
+
+
+    <label for="password" class="vh">Password</label>
+    <input type="password" [(ngModel)]="credentials.password" required #password=ngModel name="password" id="password" placeholder="Password" autocomplete="on" maxlength="24" minlength="5">
+    <p class="warning-text" *ngIf="password.errors && password.touched && password.dirty">Password is invalid!</p>
+
     <button type="submit" class="button padding icon-last">
       <span>Continue</span>
       <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false">
