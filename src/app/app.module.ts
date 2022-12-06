@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -18,17 +19,22 @@ import { SearchComponent } from './pages/search/search.component';
 import { UnderscorePipe } from './services/underscore.pipe';
 import { FormatPipe } from './services/format.pipe';
 import { LoginComponent } from './user/login/login.component';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { RegisterComponent } from './user/register/register.component';
-import { DashboardComponent } from './user/dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './dashboard/settings/profile/profile.component';
+import { EmailSecurityComponent } from './dashboard/settings/email-security/email-security.component';
+import { SafetyComponent } from './dashboard/settings/safety/safety.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'random', component: RandomComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'settings', component: DashboardComponent },
+  { path: 'settings', component: DashboardComponent, children: [
+      { path: 'profile', component: ProfileComponent },
+      { path: 'security', component: EmailSecurityComponent },
+      { path: 'safety', component: SafetyComponent },
+    ]},
   { path: 'card/random', component: RandomComponent },
   { path: 'card/search/:searchValue', component: SearchComponent },
   { path: 'card/:name', component: CardsComponent },
@@ -52,6 +58,9 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
+    ProfileComponent,
+    EmailSecurityComponent,
+    SafetyComponent,
   ],
     imports: [
         BrowserModule,
@@ -66,6 +75,3 @@ const routes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-//  AngularFireModule.initializeApp(environment.firebase),
-//     AngularFireAuthModule,
